@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\User;
 use AppBundle\Form\Type\UserType;
 use AppBundle\Repository\UserRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -14,6 +15,7 @@ class UserController extends Controller
 
     /**
      * @Route("/user/{id}", name="listar_un_usuario")
+     * @Security("is_granted('ROLE_PLAYER')")
      */
     public function getUserAction(User $user)
     {

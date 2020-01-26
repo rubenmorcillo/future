@@ -10,12 +10,13 @@ namespace AppBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-class User
+class User implements UserInterface
 {
 
     /**
@@ -43,6 +44,12 @@ class User
      * @var string
      */
     private $nickname;
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $admin;
 
     /**
      * @ORM\Column(type="integer")
@@ -196,6 +203,52 @@ class User
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->admin;
+    }
 
+    /**
+     * @param bool $admin
+     * @return User
+     */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
+        return $this;
+    }
+
+
+    public function getRoles()
+    {
+        $roles = ['ROLE_PLAYER'];
+
+        if ($this->isAdmin()){
+            $roles[] = 'ROLE_ADMIN';
+        }
+
+        return $roles;
+    }
+
+    public function getSalt()
+    {
+    }
+
+    public function getUsername()
+    {
+        $this->getLogin();
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    public function __toString()
+    {
+        return $this->getNickname();
+    }
 
 }

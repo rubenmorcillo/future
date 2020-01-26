@@ -3,9 +3,19 @@ AppBundle\Entity\User:
     login: admin
     password: admin
     nickname: Mr Admin
+    admin: true
     credits: 9999
     cash: 9999
     reputation: 9999
+
+  user:
+    login: user
+    password: user
+    nickname: user
+    admin: false
+    credits: 0
+    cash: 0
+    reputation: 0
 
 AppBundle\Entity\SoldierClass:
   classSoldier_{1..4}:
