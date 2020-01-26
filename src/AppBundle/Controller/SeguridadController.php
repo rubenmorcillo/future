@@ -17,7 +17,7 @@ class SeguridadController extends Controller
     }
 
     /**
-     * @Route("/exit", name="usuario_salir")
+     * @Route("/logout", name="usuario_logout")
      */
     public function salirAction()
     {

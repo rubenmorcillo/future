@@ -10,12 +10,13 @@ namespace AppBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-class User
+class User implements UserInterface
 {
 
     /**
@@ -232,5 +233,22 @@ class User
         return $roles;
     }
 
+    public function getSalt()
+    {
+    }
+
+    public function getUsername()
+    {
+        $this->getLogin();
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    public function __toString()
+    {
+        return $this->getNickname();
+    }
 
 }
