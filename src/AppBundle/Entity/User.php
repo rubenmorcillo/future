@@ -27,7 +27,7 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
      * @var string
      */
     private $login;
@@ -62,6 +62,12 @@ class User
      */
     private $reputation;
 
+    public function __construct()
+    {
+        $this->credits = 0;
+        $this->cash = 0;
+        $this->reputation = 0;
+    }
 
 
     /**
