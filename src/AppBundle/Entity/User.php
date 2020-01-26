@@ -45,6 +45,12 @@ class User
     private $nickname;
 
     /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $admin;
+
+    /**
      * @ORM\Column(type="integer")
      * var int
      */
@@ -196,6 +202,35 @@ class User
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param bool $admin
+     * @return User
+     */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
+        return $this;
+    }
+
+
+    public function getRoles()
+    {
+        $roles = ['ROLE_PLAYER'];
+
+        if ($this->isAdmin()){
+            $roles[] = 'ROLE_ADMIN';
+        }
+
+        return $roles;
+    }
 
 
 }
