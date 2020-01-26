@@ -15,6 +15,7 @@ class UserController extends Controller
 
     /**
      * @Route("/user/{id}", name="listar_un_usuario")
+     * @Security("is_granted('ROLE_PLAYER')")
      */
     public function getUserAction(User $user)
     {
