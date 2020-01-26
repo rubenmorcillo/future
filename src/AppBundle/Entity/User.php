@@ -62,11 +62,6 @@ class User
      */
     private $reputation;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Soldier")
-     * @var Soldier
-     */
-    private $soldiers;
 
 
     /**
@@ -192,24 +187,6 @@ class User
     public function setReputation($reputation)
     {
         $this->reputation = $reputation;
-        return $this;
-    }
-
-    /**
-     * @return Soldier
-     */
-    public function getSoldiers()
-    {
-        return $this->soldiers;
-    }
-
-    /**
-     * @param Soldier $soldiers
-     * @return User
-     */
-    public function setSoldiers($soldiers)
-    {
-        $this->soldiers = $soldiers;
         return $this;
     }
 

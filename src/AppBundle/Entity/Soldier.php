@@ -33,9 +33,17 @@ class Soldier
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\SoldierClass")
+     * @ORM\JoinColumn(nullable=false)
      * @var SoldierClass
      */
     private $class;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     * @var User
+     */
+    private $owner;
 
     /**
      * @return mixed
@@ -94,6 +102,24 @@ class Soldier
     public function __toString()
     {
         return $this->getAlias();
+    }
+
+    /**
+     * @return User
+     */
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+
+    /**
+     * @param User $owner
+     * @return Soldier
+     */
+    public function setOwner($owner)
+    {
+        $this->owner = $owner;
+        return $this;
     }
 
 
