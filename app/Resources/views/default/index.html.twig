@@ -3,7 +3,7 @@
 {% block content %}
     {% if is_granted('ROLE_PLAYER')  %}
         <a href="{{ path('panel_usuario') }}">Base</a>
-        <a href="{{ path('usuario_logout') }}">Salir</a>
+        <a href="{{ path('usuario_logout') }}">DESCONECTAR</a>
     {% else %}
 <h1>PORTADA</h1>
     <a href="{{ path('usuario_login') }}">Identifícate</a>

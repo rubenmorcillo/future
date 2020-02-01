@@ -2,6 +2,7 @@
 
 {% block content %}
     <div id="base">
+        <a href="{{ path('usuario_logout') }}">DESCONECTAR</a>
         <h1>Bienvenido a la base {{ user.nickname }}</h1>
         <h3>Comandante: {{ user.principalCharacter }} [{{ user.principalCharacter.class }}]</h3>
         <ul>
