@@ -17,6 +17,24 @@ AppBundle\Entity\User:
     cash: 0
     reputation: 0
 
+AppBundle\Entity\CharacterClass:
+  classCharacter_1:
+    name: punky
+    image: foto.jpg
+
+  classCharacter_2:
+    name: neo-samurai
+    image: foto2.jpg
+
+AppBundle\Entity\PrincipalCharacter:
+  characterPrincipal_1:
+    alias: Ravent
+    level: 5
+    experience: 973
+    class: '@classCharacter_1'
+    owner: '@Admin'
+
+
 AppBundle\Entity\SoldierClass:
   classSoldier_{1..4}:
     name: '<lastname()>'
