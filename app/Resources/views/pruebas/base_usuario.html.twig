@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<h1>Bienvenido a la base {{ user.nickname }}</h1>
+    <ul>
+        <li>Créditos: {{ user.credits }}</li>
+        <li>Cash: {{ user.cash }}</li>
+        <li>Reputation: {{ user.reputation }}</li>
+    </ul>
+{% endblock %}

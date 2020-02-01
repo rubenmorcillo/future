@@ -32,7 +32,7 @@ class UserController extends Controller
      * @Security("is_granted('ROLE_PLAYER')")
      */
     public function userPanelAction(){
-        return $this->render('pruebas/lista_usuario.html.twig', [
+        return $this->render('pruebas/base_usuario.html.twig', [
             'user' => $this->getUser()
         ]);
     }
