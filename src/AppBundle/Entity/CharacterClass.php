@@ -2,29 +2,28 @@
 /**
  * Created by PhpStorm.
  * User: Rubén
- * Date: 26/01/2020
- * Time: 0:42
+ * Date: 01/02/2020
+ * Time: 18:21
  */
 
 namespace AppBundle\Entity;
 
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="soldier_class")
+ * @ORM\Table(name="character_class")
  */
-class SoldierClass
+class CharacterClass
 {
-
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
-     * @var string
-     */private $id;
+     * @var int
+     */
+    private $id;
 
     /**
      * @ORM\Column(type="string")
@@ -39,20 +38,7 @@ class SoldierClass
     private $image;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Skill")
-     * @ORM\JoinColumn(nullable=false)
-     * @var Skill[]
-     */
-    private $skills;
-
-    public function __construct()
-    {
-        $this->skills = new ArrayCollection();
-    }
-
-
-    /**
-     * @return string
+     * @return int
      */
     public function getId()
     {
@@ -60,8 +46,8 @@ class SoldierClass
     }
 
     /**
-     * @param string $id
-     * @return SoldierClass
+     * @param int $id
+     * @return CharacterClass
      */
     public function setId($id)
     {
@@ -79,7 +65,7 @@ class SoldierClass
 
     /**
      * @param string $name
-     * @return SoldierClass
+     * @return CharacterClass
      */
     public function setName($name)
     {
@@ -97,7 +83,7 @@ class SoldierClass
 
     /**
      * @param string $image
-     * @return SoldierClass
+     * @return CharacterClass
      */
     public function setImage($image)
     {
@@ -105,28 +91,10 @@ class SoldierClass
         return $this;
     }
 
-    /**
-     * @return Skill[]
-     */
-    public function getSkills()
-    {
-        return $this->skills;
-    }
-
-    /**
-     * @param Skill[] $skills
-     * @return SoldierClass
-     */
-    public function setSkills($skills)
-    {
-        $this->skills = $skills;
-        return $this;
-    }
-
-
     public function __toString()
     {
         return $this->getName();
     }
+
 
 }

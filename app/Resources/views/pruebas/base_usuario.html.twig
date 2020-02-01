@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div id="base">
+        <h1>Bienvenido a la base {{ user.nickname }}</h1>
+        <h3>Comandante: {{ user.principalCharacter }} [{{ user.principalCharacter.class }}]</h3>
+        <ul>
+            <li>Créditos: {{ user.credits }}</li>
+            <li>Cash: {{ user.cash }}</li>
+            <li>Reputation: {{ user.reputation }}</li>
+            <ul>
+                {% for soldado in user.soldiers %}
+                    <li>Soldado: {{ soldado }} del tipo {{ soldado.class }}</li>
+                {% endfor %}
+            </ul>
+        </ul>
+    </div>
+
+    <style>
+        body{
+            background: url('{{ asset('fondos/lab1.jpg') }}');
+            /*background-size: cover;*/
+            background-size: 100%;
+            background-position: center;
+        }
+    </style>
+{% endblock %}
+

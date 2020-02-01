@@ -2,29 +2,29 @@
 /**
  * Created by PhpStorm.
  * User: Rubén
- * Date: 26/01/2020
- * Time: 0:42
+ * Date: 01/02/2020
+ * Time: 18:36
  */
 
 namespace AppBundle\Entity;
 
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="soldier_class")
+ * @ORM\Table(name="skill")
  */
-class SoldierClass
+class Skill
 {
 
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
-     * @var string
-     */private $id;
+     * @var int
+     */
+    private $id;
 
     /**
      * @ORM\Column(type="string")
@@ -33,26 +33,20 @@ class SoldierClass
     private $name;
 
     /**
-     * @ORM\Column(type="string")
-     * @var string
-     */
-    private $image;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Skill")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Element")
      * @ORM\JoinColumn(nullable=false)
-     * @var Skill[]
+     * @var Element
      */
-    private $skills;
-
-    public function __construct()
-    {
-        $this->skills = new ArrayCollection();
-    }
-
+    private $element;
 
     /**
-     * @return string
+     * @ORM\Column(type="integer")
+     * @var int
+     */
+    private $power;
+
+    /**
+     * @return int
      */
     public function getId()
     {
@@ -60,8 +54,8 @@ class SoldierClass
     }
 
     /**
-     * @param string $id
-     * @return SoldierClass
+     * @param int $id
+     * @return Skill
      */
     public function setId($id)
     {
@@ -79,7 +73,7 @@ class SoldierClass
 
     /**
      * @param string $name
-     * @return SoldierClass
+     * @return Skill
      */
     public function setName($name)
     {
@@ -88,45 +82,45 @@ class SoldierClass
     }
 
     /**
-     * @return string
+     * @return Element
      */
-    public function getImage()
+    public function getElement()
     {
-        return $this->image;
+        return $this->element;
     }
 
     /**
-     * @param string $image
-     * @return SoldierClass
+     * @param Element $element
+     * @return Skill
      */
-    public function setImage($image)
+    public function setElement($element)
     {
-        $this->image = $image;
+        $this->element = $element;
         return $this;
     }
 
     /**
-     * @return Skill[]
+     * @return int
      */
-    public function getSkills()
+    public function getPower()
     {
-        return $this->skills;
+        return $this->power;
     }
 
     /**
-     * @param Skill[] $skills
-     * @return SoldierClass
+     * @param int $power
+     * @return Skill
      */
-    public function setSkills($skills)
+    public function setPower($power)
     {
-        $this->skills = $skills;
+        $this->power = $power;
         return $this;
     }
-
 
     public function __toString()
     {
         return $this->getName();
     }
+
 
 }
