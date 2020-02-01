@@ -7,6 +7,11 @@
             <li>Créditos: {{ user.credits }}</li>
             <li>Cash: {{ user.cash }}</li>
             <li>Reputation: {{ user.reputation }}</li>
+            <ul>
+                {% for soldado in user.soldiers %}
+                    <li>Soldado: {{ soldado }} del tipo {{ soldado.class }}</li>
+                {% endfor %}
+            </ul>
         </ul>
     </div>
 
