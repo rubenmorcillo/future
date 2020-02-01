@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -69,11 +70,24 @@ class User implements UserInterface
      */
     private $reputation;
 
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\PrincipalCharacter", mappedBy="owner")
+     * @var PrincipalCharacter
+     */
+    private $principalCharacter;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Soldier", mappedBy="owner")
+     * @var Soldier[]
+     */
+    private $soldiers;
+
     public function __construct()
     {
         $this->credits = 0;
         $this->cash = 0;
         $this->reputation = 0;
+        $this->soldiers = new ArrayCollection();
     }
 
 
@@ -232,6 +246,43 @@ class User implements UserInterface
 
         return $roles;
     }
+
+    /**
+     * @return PrincipalCharacter
+     */
+    public function getPrincipalCharacter()
+    {
+        return $this->principalCharacter;
+    }
+
+    /**
+     * @param PrincipalCharacter $principalCharacter
+     * @return User
+     */
+    public function setPrincipalCharacter($principalCharacter)
+    {
+        $this->principalCharacter = $principalCharacter;
+        return $this;
+    }
+
+    /**
+     * @return Soldier[]
+     */
+    public function getSoldiers()
+    {
+        return $this->soldiers;
+    }
+
+    /**
+     * @param Soldier[] $soldiers
+     * @return User
+     */
+    public function setSoldiers($soldiers)
+    {
+        $this->soldiers = $soldiers;
+        return $this;
+    }
+
 
     public function getSalt()
     {

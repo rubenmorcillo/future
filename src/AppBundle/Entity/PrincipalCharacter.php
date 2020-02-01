@@ -51,7 +51,7 @@ class PrincipalCharacter
     private $class;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\User", inversedBy="principalCharacter")
      * @var User
      */
     private $owner;
