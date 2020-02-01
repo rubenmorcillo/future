@@ -1,3 +1,4 @@
+#USUARIOS
 AppBundle\Entity\User:
   Admin:
     login: admin
@@ -17,15 +18,39 @@ AppBundle\Entity\User:
     cash: 0
     reputation: 0
 
+
+#ELEMENTOS
+AppBundle\Entity\Element:
+  element_1:
+    literal: normal
+
+  element_2:
+    literal: fuego
+
+  element_3:
+    literal: electricidad
+
+  element_4:
+    literal: hielo
+
+#HABILIDADES
+AppBundle\Entity\Skill:
+  habilidad_{1..4}:
+    name: 'habilidad<current()>'
+    element: '@element_<numberBetween(1,4)>'
+    power: '<numberBetween(10,100)>'
+
+#CLASES PARA LOS PERSONAJES PRINCIPALES
 AppBundle\Entity\CharacterClass:
   classCharacter_1:
     name: punky
-    image: foto.jpg
+    image: punkyClass.jpg
 
   classCharacter_2:
     name: neo-samurai
-    image: foto2.jpg
+    image: neosamuraiClass.jpg
 
+#CARACTER PRINCIPALES
 AppBundle\Entity\PrincipalCharacter:
   characterPrincipal_1:
     alias: Ravent
@@ -35,10 +60,29 @@ AppBundle\Entity\PrincipalCharacter:
     owner: '@Admin'
 
 
+#CLASES DE SOLDADOS COLECCIONABLES
 AppBundle\Entity\SoldierClass:
-  classSoldier_{1..4}:
-    name: '<lastname()>'
+  classSoldier_1:
+    name: soldierClass_1
+    image: soldadoClass_1.jpg
+    skills: '4x @habilidad*'
 
+  classSoldier_2:
+    name: soldierClass_2
+    image: soldadoClass_2.jpg
+    skills: '4x @habilidad*'
+
+  classSoldier_3:
+    name: soldierClass_3
+    image: soldadoClass_3.jpg
+    skills: '4x @habilidad*'
+
+  classSoldier_4:
+    name: soldierClass_4
+    image: soldadoClass_4.jpg
+    skills: '4x @habilidad*'
+
+#SOLDADOS COLECCIONABLES
 AppBundle\Entity\Soldier:
   soldier_1:
     alias: 'recluta'
