@@ -19,8 +19,21 @@ class UserController extends Controller
      */
     public function getUserAction(User $user)
     {
+        if ($this->getUser() != $user){
+            $this->redirectToRoute('listar_un_usuario', ['id' => $this->getUser()->getId()]);
+        }
         return $this->render('pruebas/lista_usuario.html.twig', [
             'user' => $user
+        ]);
+    }
+
+    /**
+     * @Route("/base/", name="panel_usuario")
+     * @Security("is_granted('ROLE_PLAYER')")
+     */
+    public function userPanelAction(){
+        return $this->render('pruebas/lista_usuario.html.twig', [
+            'user' => $this->getUser()
         ]);
     }
 
@@ -36,6 +49,9 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()){
             try{
                $em = $this->getDoctrine()->getManager();
+               if ($user->isAdmin() == null){
+                   $user->setAdmin(false);
+               }
                $user->setPassword($form->get('password')->getData());
                $em->persist($user);
                $em->flush();
