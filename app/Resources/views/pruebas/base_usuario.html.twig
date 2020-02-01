@@ -3,6 +3,7 @@
 {% block content %}
     <div id="base">
         <h1>Bienvenido a la base {{ user.nickname }}</h1>
+        <h3>Comandante: {{ user.principalCharacter }} [{{ user.principalCharacter.class }}]</h3>
         <ul>
             <li>Créditos: {{ user.credits }}</li>
             <li>Cash: {{ user.cash }}</li>
