@@ -2,7 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\PrincipalCharacter;
 use AppBundle\Entity\User;
+use AppBundle\Form\Type\PrincipalCharacterType;
 use AppBundle\Form\Type\UserType;
 use AppBundle\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -28,12 +30,59 @@ class UserController extends Controller
     }
 
     /**
+     * @Route("/character", name="crear_pesonaje")
+     * @Security("is_granted('ROLE_PLAYER')")
+     */
+    public function choosePrincipalCharacter(Request $request){
+        try{
+            $user = $this->getUser();
+            $character = new PrincipalCharacter();
+            $form = $this->createForm(PrincipalCharacterType::class, $character);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()){
+                $userRepository = $this->getDoctrine()->getRepository(User::class);
+                $user = $userRepository->findOneBy(['id'=> $user->getId()]);
+
+                $character->setExperience(0);
+                $character->setLevel(1);
+                $character->setOwner($user);
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($character);
+                $em->flush();
+
+                return $this->redirectToRoute('panel_usuario');
+
+
+            }
+
+            if ($user->getPrincipalCharacter() == null){
+                return $this->render('pruebas/crear_personaje.html.twig', [
+                    'form' => $form->createView()
+                ]);
+            }
+
+            return $this->redirectToRoute('panel_usuario');
+
+        }catch (\Exception $e){
+            $this->addFlash('error', "error elegiendo personaje principal");
+            return $this->redirectToRoute('homepage');
+        }
+
+    }
+
+    /**
      * @Route("/base/", name="panel_usuario")
      * @Security("is_granted('ROLE_PLAYER')")
      */
     public function userPanelAction(){
+        $user = $this->getUser();
+        if ($user->getPrincipalCharacter() == null){
+            return $this->redirectToRoute('crear_pesonaje');
+        }
         return $this->render('pruebas/base_usuario.html.twig', [
-            'user' => $this->getUser()
+            'user' => $user
         ]);
     }
 
