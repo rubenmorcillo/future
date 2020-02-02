@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% set user = app.user %}
+<div id="layout_header">
+    <link href="https://fonts.googleapis.com/css?family=Play:400,700|Material+Icons|Cousine|Rajdhani:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto:400,700|Rubik+Mono+One" rel="stylesheet">
+
+    <div class="vd_topbar">
+        <div class="vd_in">
+
+            <div class="vd_name"><a href="http://violentdaylight.jcink.net/">{{ user.nickname }}</a></div>
+            {#<div class="rrsst">{{ user.nickname }}</div>#}
+
+            <div class="vd_inprof" ><p>MAPA</p></div><div class="vd_inimg"></div>
+
+        </div>
+        <div class="vs_quick">
+            <div class="containlinks">control pane</div>
+
+
+
+        </div>
+    </div>
+</div>
+<div id="layout_centro">
+{% block centro %}
+{% endblock %}
+</div>
+
+{% endblock %}

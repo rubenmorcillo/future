@@ -1,7 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout_ingame.html.twig' %}
 
-{% block content %}
-    <div id="base">
+{% block centro %}
+
         <a href="{{ path('usuario_logout') }}">DESCONECTAR</a>
         <h1>Bienvenido a la base {{ user.nickname }}</h1>
 
@@ -16,7 +16,7 @@
                 {% endfor %}
             </ul>
         </ul>
-    </div>
+
 
     <style>
         body{
