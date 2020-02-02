@@ -6,18 +6,14 @@
     <link href="https://fonts.googleapis.com/css?family=Play:400,700|Material+Icons|Cousine|Rajdhani:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto:400,700|Rubik+Mono+One" rel="stylesheet">
 
-    <div class="vd_topbar">
-        <div class="vd_in">
+    <div class="hd_topbar">
+        <div class="hd_in">
+    {% block navegacion %}
 
-            <div class="vd_name"><a href="http://violentdaylight.jcink.net/">{{ user.nickname }}</a></div>
-            {#<div class="rrsst">{{ user.nickname }}</div>#}
-
-            <div class="vd_inprof" ><p>MAPA</p></div><div class="vd_inimg"></div>
-
+    {% endblock %}
         </div>
-        <div class="vs_quick">
-            <div class="containlinks">control pane</div>
-
+        <div class="hd_quick">
+            <div class="controlpanel">control panel</div>
 
 
         </div>
@@ -27,5 +23,17 @@
 {% block centro %}
 {% endblock %}
 </div>
-
+    <script >
+        window.addEventListener("DOMContentLoaded", function(){
+            console.log("iniciando");
+            var btn_perfil = document.getElementById("btn_perfil");
+            btn_perfil.addEventListener("click", function(){
+                console.log("cargar perfil");
+            });
+            var btn_mapa = document.getElementById("btn_mapa");
+            btn_mapa.addEventListener("click", function(){
+                console.log("cargar mapa");
+            });
+        })
+    </script>
 {% endblock %}

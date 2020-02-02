@@ -54,8 +54,9 @@ a, a:hover { text-decoration: none; text-underline: none; font-family: "IBM Plex
 /*HEADER*/
 
 body {
-  /*background-image: url(https://s-media-cache-ak0.pinimg.com/originals/f2/9a/b0/f29ab011b0b93d3da2c866b921431611.jpg);*/
-  /*background-size: cover;*/
+  background-image: url(https://s-media-cache-ak0.pinimg.com/originals/f2/9a/b0/f29ab011b0b93d3da2c866b921431611.jpg);
+  background-size: cover;
+  text-align: center;
   padding:0px;
   margin:0px;
 }
@@ -65,16 +66,16 @@ body {
   top:0;
 }
 
-.vd_topbar {
+.hd_topbar {
   width:100%;
 }
 
-.vd_in {
+.hd_in {
   height:100px;
   background: rgba(11,11,11,.9);
 }
 
-.vd_inimg {
+.hd_inimg {
   width: 160px;
   height: 160px;
   background-image: url(https://i.pinimg.com/736x/7f/29/dc/7f29dc0661b929af5b56391bb6f8b405--cyberpunk-girl-cyberpunk-clothes.jpg);
@@ -87,7 +88,7 @@ body {
   left: 20px;
 }
 
-.vd_inprof {
+.hd_icono {
   text-align: center;
   color: white;
   background: #0d0d0d;
@@ -96,14 +97,26 @@ body {
   border-radius: 100%;
   border: 10px solid #0d0d0d;
   float:left;
-  position: relative;
-  left: 155px;
-  top: 155px;
+
+  position: absolute;
   z-index: 2;
   background-size: cover;
 }
+.hd_icono:hover{
+  cursor: pointer;
+}
 
-.vs_quick {
+.icono_mapa{
+  left: 155px;
+  top: 155px;
+}
+
+.icono_perfil{
+  left: 25px;
+  top: 155px;
+}
+
+.hd_quick {
   height:30px;
   width: auto;
   line-height: 30px;
@@ -112,7 +125,7 @@ body {
   text-align: center;
 }
 
-.vd_name {
+.hd_nickname {
   font: 500 50px 'rubik mono one';
   letter-spacing: 10px;
   text-transform: uppercase;
@@ -132,7 +145,8 @@ body {
   -ms-transition: .5s linear;
 }
 
-.vd_name a {
+.hd_nickname a {
+  cursor: default;
   text-decoration: none;
   color: #0b0b0b;
 }
@@ -152,14 +166,15 @@ body {
   /*z-index: 2;*/
 /*}*/
 
-.vs_quick a {
+.hd_quick a {
   text-decoration: none;
   color: #888;
   font: 400 10px/100% play, sans-serif;
   text-transform:uppercase;
 }
 
-.containlinks {
+.controlpanel {
+  cursor: default;
   float: left;
   position: relative;
   left: 240px;
@@ -181,7 +196,7 @@ body {
 }
 
 
-.containlinks a {
+.controlpanel a {
   color:#fff!important;
   display:block!important;
   height:25px!important;
