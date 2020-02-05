@@ -59,6 +59,10 @@ body {
   text-align: center;
   padding:0px;
   margin:0px;
+
+  /*-webkit-filter: hue-rotate(45deg);*/
+  /*filter: hue-rotate(95deg);*/
+
 }
 #layout_header{
   position:fixed;
@@ -71,21 +75,21 @@ body {
 }
 
 .hd_in {
-  height:100px;
+  height:80px;
   background: rgba(11,11,11,.9);
 }
 
 .hd_inimg {
-  width: 160px;
-  height: 160px;
+  width: 145px;
+  height: 145px;
   background-image: url(https://i.pinimg.com/736x/7f/29/dc/7f29dc0661b929af5b56391bb6f8b405--cyberpunk-girl-cyberpunk-clothes.jpg);
   background-size: cover;
   border-radius: 100%;
   border: 20px solid #0d0d0d;
   position:relative;
   z-index: 1;
-  top:20px;
-  left: 20px;
+  top:15px;
+  left: 25px;
 }
 
 .hd_icono {
@@ -107,13 +111,13 @@ body {
 }
 
 .icono_mapa{
-  left: 155px;
-  top: 155px;
+  left: 165px;
+  top: 125px;
 }
 
 .icono_perfil{
-  left: 25px;
-  top: 155px;
+  left: 30px;
+  top: 150px;
 }
 
 .hd_quick {
@@ -130,7 +134,7 @@ body {
   letter-spacing: 10px;
   text-transform: uppercase;
   text-align: left;
-  top: 20px;
+  top: 5px;
   left: 200px;
   margin: auto;
   position: absolute;
