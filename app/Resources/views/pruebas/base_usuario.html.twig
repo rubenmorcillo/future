@@ -1,7 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout_ingame.html.twig' %}
+{% block navegacion %}
+    <div class="hd_nickname"><a>{{ user.nickname }}</a></div>
+    {#<div class="rrsst">{{ user.nickname }}</div>#}
 
-{% block content %}
-    <div id="base">
+    <div class="hd_inimg"></div>
+    <div class="hd_icono icono_mapa" ><p id="btn_mapa">MAPA</p></div>
+    <div class="hd_icono icono_perfil"><p id="btn_perfil">PERFIL</p></div>
+{% endblock %}
+{% block centro %}
+
         <a href="{{ path('usuario_logout') }}">DESCONECTAR</a>
         <h1>Bienvenido a la base {{ user.nickname }}</h1>
 
@@ -16,14 +23,15 @@
                 {% endfor %}
             </ul>
         </ul>
-    </div>
+
 
     <style>
         body{
-            background: url('{{ asset('fondos/lab1.jpg') }}');
+            background: url('{{ asset('fondos/dormitorio.jpg') }}');
             /*background-size: cover;*/
-            background-size: 100%;
-            background-position: center;
+            background-size: cover;
+            background-position: left;
+
         }
     </style>
 {% endblock %}

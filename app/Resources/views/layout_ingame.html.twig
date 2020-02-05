@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% set user = app.user %}
+<div id="layout_header">
+    <link href="https://fonts.googleapis.com/css?family=Play:400,700|Material+Icons|Cousine|Rajdhani:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto:400,700|Rubik+Mono+One" rel="stylesheet">
+
+    <div class="hd_topbar">
+        <div class="hd_in">
+    {% block navegacion %}
+
+    {% endblock %}
+        </div>
+        <div class="hd_quick">
+            <div class="controlpanel">control panel</div>
+
+
+        </div>
+    </div>
+</div>
+<div id="layout_centro">
+{% block centro %}
+{% endblock %}
+</div>
+    <script >
+        window.addEventListener("DOMContentLoaded", function(){
+            console.log("iniciando");
+            var btn_perfil = document.getElementById("btn_perfil");
+            btn_perfil.addEventListener("click", function(){
+                console.log("cargar perfil");
+            });
+            var btn_mapa = document.getElementById("btn_mapa");
+            btn_mapa.addEventListener("click", function(){
+                console.log("cargar mapa");
+            });
+        })
+    </script>
+{% endblock %}
