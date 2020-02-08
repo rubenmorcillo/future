@@ -246,12 +246,7 @@ body {
   padding: 0;
 }
 
-html, body {
-  /*font-size: 62.5%;*/
-  height: 100%;
-  overflow: hidden;
 
-}
 @media (max-width: 768px) {
   html, body {
     font-size: 50%;

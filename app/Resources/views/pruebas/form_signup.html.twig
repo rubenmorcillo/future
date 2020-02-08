@@ -26,15 +26,14 @@
                         <div class="login__row">
                             {{ form_row(form.nickname)}}
                         </div>
-                        <div class="login__signup">
+                        <div class="login__row">
                             <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
                                 <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
                             </svg>
                             {{ form_row(form.password)}}
-                        </div>
-                        <div class="login__row">
                             <button type="submit" class="login__submit">Registrarse</button>
                         </div>
+
 
                     </div>
                     {{ form_end(form) }}
@@ -42,28 +41,13 @@
             </div>
         </div>
     </div>
+    <style>
+        html, body {
+            font-size: 62.5%;
+            height: 100%;
+            /*overflow: hidden;*/
+        }
+    </style>
 
-
-
-    {#<form class="form_login_cp"action="{{ path('usuario_nuevo') }}" method="post">#}
-        {#<div class="form_image_login_cp"></div>#}
-
-        {#<div class="input_login_cp">#}
-            {#{{ form_row(form.login )}}#}
-        {#</div>#}
-        {#<div class="input_login_cp">#}
-            {#{{ form_row(form.nickname)}}#}
-        {#</div>#}
-        {#<div class="input_login_cp">#}
-            {#{{ form_row(form.password)}}#}
-        {#</div>#}
-        {#{{ form_errors(form) }}#}
-
-        {#<button type="submit" class="button_cp">#}
-            {#<div class="button_label_cp">Registrarse</div>#}
-            {#<div class="button_icon_cp"></div>#}
-        {#</button>#}
-        {#{{ form_end(form) }}#}
-    {#</form>#}
 
 {% endblock %}
