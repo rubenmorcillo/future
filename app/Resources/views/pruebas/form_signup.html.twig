@@ -1,11 +1,69 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>User</h1>
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Guardar cambios</button>
-    {{ form_end(form) }}
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+
+    <div class="canvas-area">
+    <!--  <div class="move">Move the mouse from side to side</div>-->
+    <canvas id="stars-font" width="5000" height="1000px" style="z-index:2;position:absolute;"></canvas>
+    <canvas id="stars-under" width="5000" height="1000px" style="z-index:1;position:absolute;"></canvas>
+
+
+    <div class="cont">
+        <div class="demo">
+            <div class="login">
+                <form action="{{ path('crear_usuario') }}" method="post">
+                    <div id="nome"><h1>FUTURE</h1></div>
+                    <!--<div class="login__check"></div>-->
+                    <div class="login__form">
+                        <div class="login__row">
+                            <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+                                <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+                            </svg>
+                            {{ form_row(form.login )}}
+                        </div>
+                        <div class="login__row">
+                            {{ form_row(form.nickname)}}
+                        </div>
+                        <div class="login__signup">
+                            <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+                                <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+                            </svg>
+                            {{ form_row(form.password)}}
+                        </div>
+                        <div class="login__row">
+                            <button type="submit" class="login__submit">Registrarse</button>
+                        </div>
+
+                    </div>
+                    {{ form_end(form) }}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    {#<form class="form_login_cp"action="{{ path('usuario_nuevo') }}" method="post">#}
+        {#<div class="form_image_login_cp"></div>#}
+
+        {#<div class="input_login_cp">#}
+            {#{{ form_row(form.login )}}#}
+        {#</div>#}
+        {#<div class="input_login_cp">#}
+            {#{{ form_row(form.nickname)}}#}
+        {#</div>#}
+        {#<div class="input_login_cp">#}
+            {#{{ form_row(form.password)}}#}
+        {#</div>#}
+        {#{{ form_errors(form) }}#}
+
+        {#<button type="submit" class="button_cp">#}
+            {#<div class="button_label_cp">Registrarse</div>#}
+            {#<div class="button_icon_cp"></div>#}
+        {#</button>#}
+        {#{{ form_end(form) }}#}
+    {#</form>#}
 
 {% endblock %}

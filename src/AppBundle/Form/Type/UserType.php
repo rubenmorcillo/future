@@ -33,22 +33,32 @@ class UserType extends AbstractType
 
         $builder
             ->add('login', null, [
-                'label' => "Username"
+                'attr' => ['class' => 'login__input pass',
+                    'placeholder' => 'Login'],
+                'label' => " "
             ])
             ->add('password', RepeatedType::class, [
+
                 'type' => PasswordType::class,
                 'mapped' => false,
+
                 'first_options' => [
-                    'label' => 'Password',
+                    'attr' => ['class' => 'login__input pass',
+                        'placeholder' => 'Password'],
+                    'label' => " ",
                     'constraints' => [new NotBlank()]
                 ],
                 'second_options' => [
-                    'label' => 'Confirm Password'
+                    'label' => " ",
+                    'attr' => ['class' => 'login__input pass',
+                        'placeholder' => 'Repeat password'],
                 ]
             ])
 
             ->add('nickname', null, [
-                'label' => 'Nickname'
+                'label' => " ",
+                'attr' => ['class' => 'login__input pass',
+                    'placeholder' => 'Nickname'],
             ]);
 
 
