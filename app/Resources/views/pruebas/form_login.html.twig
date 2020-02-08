@@ -1,12 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Entrar en la aplicación</h1>
+    <!--DESIGN TELA RPG
+ MODIFICATION FROM OTHERS JOB FOUND HERE ON CODEPEN-->
 
-    <form action="{{ path('usuario_login') }}" method="post">
-        <input type="text" name="_username" placeholder="Nombre de usuario">
-        <input type="password" name="_password" placeholder="Contraseña">
-        <button type="submit">Entrar</button>
-    </form>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+
+    <div class="canvas-area">
+        <!--  <div class="move">Move the mouse from side to side</div>-->
+        <canvas id="stars-font" width="5000" height="1000px" style="z-index:2;position:absolute;"></canvas>
+        <canvas id="stars-under" width="5000" height="1000px" style="z-index:1;position:absolute;"></canvas>
+
+
+        <div class="cont">
+            <div class="demo">
+                <div class="login">
+                    <form action="{{ path('usuario_login') }}" method="post">
+                    <div id="nome"><h1>FUTURE</h1></div>
+                    <!--<div class="login__check"></div>-->
+                    <div class="login__form">
+                        <div class="login__row">
+                            <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+                                <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+                            </svg>
+                            <input name="_username" type="text" class="login__input name" placeholder="Username"/>
+                        </div>
+                        <div class="login__row">
+                            <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+                                <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+                            </svg>
+                            <input name="_password" type="password" class="login__input pass" placeholder="Password"/>
+                        </div>
+                        <button type="submit" class="login__submit">Continuar</button>
+                        <a href="{{ path('crear_usuario') }}" class="login__submit">Nueva cuenta</a>
+                        {#<p class="login__signup">Ponte en contacto &nbsp;<a href="#">Contacto</a></p>#}
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
 
 {% endblock %}
