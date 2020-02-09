@@ -45,10 +45,13 @@
             var btn_perfil = document.getElementById("btn_perfil");
             btn_perfil.addEventListener("click", function(){
                 console.log("cargar perfil");
+                window.location.href = "{{ path('panel_usuario') }}";
             });
             var btn_mapa = document.getElementById("btn_mapa");
             btn_mapa.addEventListener("click", function(){
                 console.log("cargar mapa");
+                {#console.log("redirigiendo a {{ path('mapa_distritos') }}");#}
+                window.location.href = "{{ path('mapa_distritos') }}"
             });
         })
     </script>
