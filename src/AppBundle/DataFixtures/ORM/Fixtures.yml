@@ -17,6 +17,11 @@ AppBundle\Entity\User:
     credits: 0
     cash: 0
     reputation: 0
+#DISTRITOS
+AppBundle\Entity\District:
+  distritos_{1..20}:
+    number: '<current()>'
+    name: '<word()>'
 
 
 #ELEMENTOS
