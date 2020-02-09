@@ -1,15 +1,10 @@
 {% extends 'layout_ingame.html.twig' %}
-{% block navegacion %}
-    <div class="hd_nickname"><a>{{ user.nickname }}</a></div>
-    {#<div class="rrsst">{{ user.nickname }}</div>#}
+{#{% block navegacion %}#}
 
-    <div class="hd_inimg"></div>
-    <div class="hd_icono icono_mapa" ><p id="btn_mapa">MAPA</p></div>
-    <div class="hd_icono icono_perfil"><p id="btn_perfil">PERFIL</p></div>
-{% endblock %}
+{#{% endblock %}#}
 {% block centro %}
 
-        <a href="{{ path('usuario_logout') }}">DESCONECTAR</a>
+
         <h1>Bienvenido a la base {{ user.nickname }}</h1>
 
         <h3>Comandante:   {% if user.principalCharacter %}{{ user.principalCharacter }} [{{ user.principalCharacter.class }}] {% endif %}</h3>

@@ -37,6 +37,7 @@ security:
             form_login:
                 login_path: usuario_login
                 check_path: usuario_login
+#                default_target_path: after_login
 
             logout:
                 path: usuario_logout

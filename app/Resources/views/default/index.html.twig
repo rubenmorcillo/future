@@ -3,7 +3,6 @@
 {% block navegacion %}
     {% if is_granted('ROLE_PLAYER')  %}
         <a href="{{ path('crear_pesonaje') }}">START</a>
-        <a href="{{ path('usuario_logout') }}">DESCONECTAR</a>
     {% else %}
 
     <a href="{{ path('usuario_login') }}">Identifícate</a>

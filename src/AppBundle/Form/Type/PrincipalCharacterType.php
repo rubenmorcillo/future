@@ -23,10 +23,12 @@ class PrincipalCharacterType extends AbstractType
 
         $builder
             ->add('alias', null, [
-                'label' => "Alias"
+                'label' => "Alias",
+                'required' => true
             ])
             ->add('class',null,[
-                'label' => "Tipo"
+                'label' => "Tipo",
+                 'required' => true
             ]);
 
 

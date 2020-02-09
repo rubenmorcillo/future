@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+    {% set ruta = app.request.get('_route') %}
     {% set user = app.user %}
 <div id="layout_header">
     <link href="https://fonts.googleapis.com/css?family=Play:400,700|Material+Icons|Cousine|Rajdhani:400,700" rel="stylesheet">
@@ -9,11 +10,26 @@
     <div class="hd_topbar">
         <div class="hd_in">
     {% block navegacion %}
+        <div class="hd_nickname"><a>{{ user.nickname }}</a></div>
+        {#<div class="rrsst">{{ user.nickname }}</div>#}
+
+        <div class="hd_inimg"></div>
+        <div class="hd_icono icono_mapa" ><p id="btn_mapa">MAPA</p></div>
+        <div class="hd_icono icono_perfil"><p id="btn_perfil">PERFIL</p></div>
 
     {% endblock %}
         </div>
         <div class="hd_quick">
-            <div class="controlpanel">control panel</div>
+            <div class="controlpanel">
+                {% if ruta starts with ('homepage') %}
+
+                {% else %}
+                <a href="{{ path('homepage') }}"><i class="fas fa-step-backward"></i>Volver al menu</a>
+                {% endif %}
+                {% if app.user %}
+                <a href="{{ path('usuario_logout') }}">DESCONECTAR</a>
+                {% endif %}
+            </div>
 
 
         </div>
