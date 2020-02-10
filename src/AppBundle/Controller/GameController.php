@@ -16,10 +16,14 @@ class GameController extends Controller
      */
     public function mapAction(DistrictRepository $districtRepository)
     {
+        $user = $this->getUser();
+        $validDistricts = $districtRepository->findByReputationLessThan($user->getReputation());
 
         $districts = $districtRepository->findAll();
         return $this->render('pruebas/mapa_distritos.html.twig', [
-            'districts' => $districts
+            'districts' => $districts,
+            'validDistricts' => $validDistricts,
+            'reputation' => $user->getReputation()
         ]);
     }
 }

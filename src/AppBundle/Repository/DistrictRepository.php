@@ -20,5 +20,14 @@ class DistrictRepository extends ServiceEntityRepository
         parent::__construct($registry, District::class);
     }
 
+    public function findByReputationLessThan($value){
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.reputation < :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 
 }
