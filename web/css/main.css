@@ -59,6 +59,7 @@ body {
   text-align: center;
   padding:0px;
   margin:0px;
+  overflow: hidden;
 
   /*-webkit-filter: hue-rotate(45deg);*/
   /*filter: hue-rotate(95deg);*/
@@ -246,12 +247,6 @@ body {
   padding: 0;
 }
 
-
-@media (max-width: 768px) {
-  html, body {
-    font-size: 50%;
-  }
-}
 
 svg {
   display: inline-block;
@@ -780,7 +775,7 @@ input, button {
   border-radius:5px;
   width:100%;
   height:100%;
-  background:cover; background:url(http://spaceismine.org/photos/20100517233433.jpg);
+  /*background: cover; background:url(http://spaceismine.org/photos/20100517233433.jpg);*/
   background-position:-500px 0;
   overflow:hidden;
   position:relative;

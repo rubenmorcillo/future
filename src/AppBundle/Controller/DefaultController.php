@@ -13,9 +13,13 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        if ($this->getUser()){
-            $this->redirectToRoute('listar_un_usuario', ['id' => $this->getUser()->getId()]);
-        }
+//        if ($this->getUser()->getRoles()){
+//            $ea = "";
+//        }
+//
+//        if ($this->getUser() != null){
+//            $this->redirectToRoute('listar_un_usuario', ['id' => $this->getUser()->getId()]);
+//        }
 
 
         // replace this example code with whatever you need
