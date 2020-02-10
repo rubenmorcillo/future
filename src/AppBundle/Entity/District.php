@@ -45,6 +45,13 @@ class District
      */
     private $reputation;
 
+
+    /**
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    private $shape;
+
     /**
      * @return int
      */
@@ -114,6 +121,24 @@ class District
     public function setReputation($reputation)
     {
         $this->reputation = $reputation;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShape()
+    {
+        return $this->shape;
+    }
+
+    /**
+     * @param string $shape
+     * @return District
+     */
+    public function setShape($shape)
+    {
+        $this->shape = $shape;
         return $this;
     }
 
