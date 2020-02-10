@@ -38,6 +38,13 @@ class District
      */
     private $name;
 
+
+    /**
+     * @ORM\Column(type="integer")
+     * @var int
+     */
+    private $reputation;
+
     /**
      * @return int
      */
@@ -92,10 +99,27 @@ class District
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getReputation()
+    {
+        return $this->reputation;
+    }
+
+    /**
+     * @param int $reputation
+     * @return District
+     */
+    public function setReputation($reputation)
+    {
+        $this->reputation = $reputation;
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->getNumber()." -> ".$this->getName();
     }
-
 
 }

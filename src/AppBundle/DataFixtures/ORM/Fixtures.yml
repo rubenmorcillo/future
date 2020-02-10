@@ -22,6 +22,7 @@ AppBundle\Entity\District:
   distritos_{1..20}:
     number: '<current()>'
     name: '<word()>'
+    reputation: '<numberBetween(0,1000)>'
 
 
 #ELEMENTOS
