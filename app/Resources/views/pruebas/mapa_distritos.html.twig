@@ -1,9 +1,7 @@
 {% extends 'layout_ingame.html.twig' %}
 {% block centro %}
 <div id="div_mapa">
-    {% for d in validDistricts %}
-    <p>{{ d.getNumber }}</p>
-    {% endfor %}
+
     <span class="mi_tooltip"></span>
     <svg id="map_svg">
         <g>
@@ -17,13 +15,10 @@
         body{
             background: #222222;
         }
-        #div_mapa{
-         position: relative;
-        }
         .land{
             fill: #CCCCCC;
             fill-opacity: 1;
-            stroke:white;
+            stroke:black;
             stroke-opacity: 1;
             stroke-width:0.5;
         }
@@ -35,7 +30,7 @@
 
         #map_svg{
          position:fixed;
-            left: 10em;
+            left: 30em;
             top:0;
             text-shadow: -1px 1px #ec008c, -2px 0px #ec008c, 1px 1px #0fe87f, 2px 2px #00daff;
         }
@@ -43,17 +38,17 @@
             visibility:hidden;
             width: 200px;
             background-color: dimgrey;
-            position: absolute;
+            position: fixed;
+            margin-top: 16em;
+            margin-left:2em;
             top:0;
-            left:0;
+            /*left: -26em;*/
             z-index: 1;
             opacity: 0.8;
             border: 1px solid black;
             text-shadow: -1px 1px #ec008c, -2px 0px #ec008c, 1px 1px #0fe87f, 2px 2px #00daff;
         }
-        .land_blocked{
-            background-color: darkred;
-        }
+
 
 
     </style>
