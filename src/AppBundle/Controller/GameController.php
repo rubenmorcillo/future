@@ -26,4 +26,16 @@ class GameController extends Controller
             'reputation' => $user->getReputation()
         ]);
     }
+
+    /**
+     * @Route("/commander", name="perfil_comandante")
+     * @Security("is_granted('ROLE_PLAYER')")
+     */
+    public function principalCharacterAction()
+    {
+        $user = $this->getUser();
+
+        return $this->render('pruebas/base_comandante.html.twig', [
+        ]);
+    }
 }

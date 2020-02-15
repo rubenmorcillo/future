@@ -5,9 +5,25 @@
 /* /////////////////////////////////////////////////////////////////// */
 /*ESTILOS GENERALES*/
 
-*{
+* {
   /*font-family: 'Roboto', 'IBM Plex Sans', 'Krona One';*/
   list-style-type: none !important;
+
+  /*COLORES*/
+  --bg-color-test1: rgba(40,60,60,0.6);
+  --bg-color-test2: #a023a3;
+  --color-bg-izq: rgba(10,10,10,0.6);
+  --color-borde-rosa: #ec008c;
+  --color-borde-azul: #007bff;
+  --color-neon: #70ffff;
+
+  --color-green-soft: #0fe87f;
+
+
+  /*MEDIDAS*/
+  --header_down_line: 8em;
+  --size-screen-width: 1200px;
+  --size-screen-heigth: 900px;
 }
 a, a:hover { text-decoration: none; text-underline: none; font-family: "IBM Plex Sans", linkMacSystemFont, San Francisco, Roboto, Helvetica Neue, Segoe UI, sans-serif; font-weight: bold;}
 
@@ -207,13 +223,47 @@ body {
   height:25px!important;
   line-height:28px!important;
 }
+/*IZQ*/
+#layout_izq{
+  /*opacity: 0.8;*/
+  background: var(--color-bg-izq);
+  position:fixed;
+  top: var(--header_down_line);
+  left: 2em;
+  width: 18em;
+  margin-top:5em;
+}
+
+#base_nav{
+  background-color: var(--bg-color-test1);
+}
+#base_nav > ul > li{
+  padding: 1em 1em;
+  border: 2px inset var(--color-borde-azul);
+}
+#base_nav > ul > li:hover{
+  border: 2px outset var(--color-borde-rosa);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0);
+  text-shadow: 0 0 2px #ffffff, 0 0 15px #70ffff, 0 0 20px #46fdff, 0 0 40px #46fdff;
+}
+
+#base_nav > ul > li > a{
+  color: var(--color-neon);
+}
+
 
 /*CENTRO*/
 #layout_centro{
+  background: var(--bg-color-test1);
   position:relative;
-  top: 16em;
-
+  top: var(--header_down_line);
+  left: 26em;
+  width:55em;
+  height: 500px;
+  border: 2px inset var(--color-borde-azul);
 }
+
 
 
 /*esto no se si está funcionando*/

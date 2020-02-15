@@ -15,7 +15,7 @@
 
         <div class="hd_inimg"></div>
         <div class="hd_icono icono_mapa" ><p id="btn_mapa">MAPA</p></div>
-        <div class="hd_icono icono_perfil"><p id="btn_perfil">PERFIL</p></div>
+        <div class="hd_icono icono_perfil"><p id="btn_perfil">BASE</p></div>
 
     {% endblock %}
         </div>
@@ -35,6 +35,10 @@
         </div>
     </div>
 </div>
+    <div id="layout_izq">
+    {% block izq %}
+    {% endblock %}
+    </div>
 <div id="layout_centro">
 {% block centro %}
 {% endblock %}
