@@ -5,17 +5,20 @@
 /* /////////////////////////////////////////////////////////////////// */
 /*ESTILOS GENERALES*/
 
-*{
+* {
   /*font-family: 'Roboto', 'IBM Plex Sans', 'Krona One';*/
   list-style-type: none !important;
 
   /*COLORES*/
   --bg-color-test1: rgba(40,60,60,0.6);
   --bg-color-test2: #a023a3;
+  --color-bg-izq: rgba(10,10,10,0.6);
   --color-borde-rosa: #ec008c;
   --color-borde-azul: #007bff;
   --color-neon: #70ffff;
-  --color-bg-izq: rgba(10,10,10,0.6);
+
+  --color-green-soft: #0fe87f;
+
 
   /*MEDIDAS*/
   --header_down_line: 8em;
@@ -235,7 +238,6 @@ body {
   background-color: var(--bg-color-test1);
 }
 #base_nav > ul > li{
-  color: var(--color-neon);
   padding: 1em 1em;
   border: 2px inset var(--color-borde-azul);
 }
@@ -244,6 +246,10 @@ body {
   cursor: pointer;
   color: rgba(255, 255, 255, 0);
   text-shadow: 0 0 2px #ffffff, 0 0 15px #70ffff, 0 0 20px #46fdff, 0 0 40px #46fdff;
+}
+
+#base_nav > ul > li > a{
+  color: var(--color-neon);
 }
 
 
