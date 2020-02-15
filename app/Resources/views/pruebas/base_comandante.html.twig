@@ -1,5 +1,176 @@
 {% extends 'pruebas/base_usuario.html.twig' %}
 
 {% block centro %}
-<p>datos de tu comandante</p>
+
+        <div id="tablas_stats">
+            <div class="comandante_detalles">
+                <h3>el tio</h3>
+    <p>todos estos años uno se makilla</p>
+            </div>
+            <div  class=tabla_equipo>
+                <p class="titulo_equipo"> <span class="letra_equipo">CABEZA_</span>
+                    <span class="letra_equipo_sub">EQUIPADO</span>
+                </p>
+                <p>
+                    <span class="nombre_arma">Cyber Mask</span>
+                </p>
+                <p><span class="letra_stat">DEF</span></p>
+                <p><span class="letra_stat">EVA</span></p>
+                <p><span class="letra_stat">RES</span></p>
+            </div>
+            <div class=tabla_equipo>
+                <p class="titulo_equipo"> <span class="letra_equipo">CUERPO_</span>
+                    <span class="letra_equipo_sub">EQUIPADO</span>
+                </p>
+                <p>
+                    <span class="nombre_arma">Chaqueta Recluta</span>
+                </p>
+                <p><span class="letra_stat">DEF</span></p>
+                <p><span class="letra_stat">EVA</span></p>
+                <p><span class="letra_stat">RES</span></p>
+            </div>
+            <div class=tabla_equipo>
+                <p class="titulo_equipo"> <span class="letra_equipo">ARMA_</span>
+                    <span class="letra_equipo_sub">EQUIPADO</span>
+                </p>
+                <p>
+                    <span class="nombre_arma">acp .45</span>
+                </p>
+                <p><span class="letra_stat">DEF</span></p>
+                <p><span class="letra_stat">EVA</span></p>
+                <p><span class="letra_stat">RES</span></p>
+            </div>
+            <div class=tabla_equipo>
+                <p class="titulo_equipo"> <span class="letra_equipo">NEUROIMPLANTE_</span>
+                    <span class="letra_equipo_sub">EQUIPADO</span>
+                </p>
+                <p>
+                    <span class="nombre_arma">IKX_33</span>
+                </p>
+                <p><span class="letra_stat">DEF</span></p>
+                <p><span class="letra_stat">EVA</span></p>
+                <p><span class="letra_stat">RES</span></p>
+            </div>
+        </div>
+
+
+
+
+{%   set clr_main_claro = "#222222" %}
+    <style>
+        *{
+            /*cursor:url(http://falconmasters.com/img/cursor.gif), auto;*/
+            margin:0;
+            padding:0;
+        }
+        {#body{#}
+            {#background-color:{{ clr_fondo }};#}
+        {#}#}
+        header ul{
+            margin:1em 1.2em 1em;
+        }
+        header > ul li{
+            list-style: none;
+            display:inline-block;
+            color:var(--color-borde-azul);
+            padding:0 5.5em 0;
+            border-bottom: 0.05em solid #020202;
+            font-family: Tunga;
+            font-weight: bolder;
+        }
+        header li:hover{
+            background-color:var(--color-borde-rosa);
+        }
+        nav{
+            margin-top:-0.9em;
+            margin-left: 1.2em;
+        }
+        nav span{
+            margin-right:1em;
+        }
+        .letra_top{
+            font-family: MatrixBook;
+            font-weight: bolder;
+            color: var(--color-neon);
+        }
+        .letra_sub{
+            font-weight: bold;
+            font-family: candara;
+            font-style: italic;
+            color: var(--color-borde-azul);
+        }
+        .letra_lvl{
+            font-family: MatrixBoldSmallCaps;
+            color: var(--color-borde-azul);
+        }
+
+
+        #tablas_stats{
+            margin:2.5em 1em 0.5em;
+            width: 30%;
+        }
+        .tabla_equipo{
+            width:100%;
+            display:inline-block;
+            border-top: 1px outset var(--color-borde-rosa);
+            border-bottom: 1px inset var(--color-borde-rosa);
+            border-left:1px outset var(--color-borde-rosa);
+            border-right:1px inset var(--color-borde-rosa);
+            margin-top:0.3em;
+        }
+        .tabla_equipo:hover{
+            background-color: var(--color-green-soft);
+
+        }
+        .letra_top{
+            font-family: MatrixBook;
+            font-weight: bolder;
+            color: var(--color-neon);
+        }
+        .letra_sub{
+            font-weight: bold;
+            font-family: candara;
+            font-style: italic;
+            color: var(--color-borde-azul);
+        }
+        .letra_lvl{
+            font-family: MatrixBoldSmallCaps;
+            color:  var(--color-borde-azul);
+        }
+        .letra_equipo{
+
+            font-family: MatrixBook;
+            font-weight: bolder;
+            color: black;
+        }
+        .letra_equipo_sub{
+
+            font-family: MatrixBook;
+            font-weight: lighter;
+            color: var(--color-borde-azul);
+        }
+        .nombre_arma{
+            margin-left:20%;
+            font-family:ModMatrix;
+            color: var(--color-borde-rosa);
+        }
+        .letra_stat{
+            margin-left: 20%;
+            font-family: ModMatrix;
+            color: var(--color-neon);
+        }
+        .titulo_equipo{
+            border-bottom: 0.5px solid var(--color-borde-azul);
+        }
+        .comandante_detalles{
+            position:fixed;
+            left: 55%;
+            width: 35%;
+        }
+        {#.resaltado{#}
+            {#background-color:{{ clr_hover }};#}
+        {#}#}
+    </style>
+
 {% endblock %}
+

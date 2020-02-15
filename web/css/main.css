@@ -22,8 +22,8 @@
 
   /*MEDIDAS*/
   --header_down_line: 8em;
-  --size-screen-width: 1200px;
-  --size-screen-heigth: 900px;
+  --size-screen-width: 900px;
+  --size-screen-heigth: 600px;
 }
 a, a:hover { text-decoration: none; text-underline: none; font-family: "IBM Plex Sans", linkMacSystemFont, San Francisco, Roboto, Helvetica Neue, Segoe UI, sans-serif; font-weight: bold;}
 
@@ -76,6 +76,8 @@ body {
   padding:0px;
   margin:0px;
   overflow: hidden;
+  min-width: var(--size-screen-width);
+  min-height: var(--size-screen-heigth);
 
   /*-webkit-filter: hue-rotate(45deg);*/
   /*filter: hue-rotate(95deg);*/
