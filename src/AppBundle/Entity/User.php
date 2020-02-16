@@ -83,7 +83,7 @@ class User implements UserInterface
     private $soldiers;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Inventory", inversedBy="user")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Inventory", inversedBy="user", cascade={"persist"})
      * @var Inventory
      */
     private $inventory;

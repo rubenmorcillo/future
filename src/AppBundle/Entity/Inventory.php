@@ -44,6 +44,13 @@ class Inventory
      */
     private $currentCapacity;
 
+    public function __construct()
+    {
+        $this->maxCapacity = 100;
+        $this->currentCapacity = 0;
+    }
+
+
     /**
      * @return int
      */
