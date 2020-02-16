@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Inventory;
 use AppBundle\Entity\PrincipalCharacter;
 use AppBundle\Entity\User;
 use AppBundle\Form\Type\PrincipalCharacterType;
@@ -47,6 +48,8 @@ class UserController extends Controller
                 $character->setExperience(0);
                 $character->setLevel(1);
                 $character->setOwner($user);
+
+
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($character);
@@ -101,6 +104,12 @@ class UserController extends Controller
                if ($user->isAdmin() == null){
                    $user->setAdmin(false);
                }
+
+               $inventory = new Inventory();
+               $inventory->setMaxCapacity(100);
+               $inventory->setCurrentCapacity(0);
+
+               $user->setInventory($inventory);
                $user->setPassword($form->get('password')->getData());
                $em->persist($user);
                $em->flush();

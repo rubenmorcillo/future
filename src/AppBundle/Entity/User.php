@@ -82,6 +82,12 @@ class User implements UserInterface
      */
     private $soldiers;
 
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Inventory", inversedBy="user", cascade={"persist"})
+     * @var Inventory
+     */
+    private $inventory;
+
     public function __construct()
     {
         $this->credits = 0;
@@ -280,6 +286,24 @@ class User implements UserInterface
     public function setSoldiers($soldiers)
     {
         $this->soldiers = $soldiers;
+        return $this;
+    }
+
+    /**
+     * @return Inventory
+     */
+    public function getInventory()
+    {
+        return $this->inventory;
+    }
+
+    /**
+     * @param Inventory $inventory
+     * @return User
+     */
+    public function setInventory($inventory)
+    {
+        $this->inventory = $inventory;
         return $this;
     }
 

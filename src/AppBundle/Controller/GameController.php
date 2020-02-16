@@ -38,4 +38,16 @@ class GameController extends Controller
         return $this->render('pruebas/base_comandante.html.twig', [
         ]);
     }
+
+    /**
+     * @Route("/inventory", name="user_inventario")
+     * @Security("is_granted('ROLE_PLAYER')")
+     */
+    public function inventoryAction(){
+        $user = $this->getUser();
+
+        return $this->render('pruebas/base_inventario.html.twig', [
+            'inventory' => $user->getInventory()
+        ]);
+    }
 }

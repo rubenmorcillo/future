@@ -1,4 +1,13 @@
 #USUARIOS
+AppBundle\Entity\Inventory:
+  inventarioAdmin:
+    maxCapacity: 999
+    currentCapacity: 0
+
+  inventarioUser:
+    maxCapacity: 100
+    currentCapacity: 0
+
 AppBundle\Entity\User:
   Admin:
     login: admin
@@ -8,6 +17,7 @@ AppBundle\Entity\User:
     credits: 9999
     cash: 9999
     reputation: 9999
+    inventory: '@inventarioAdmin'
 
   user:
     login: user
@@ -17,6 +27,10 @@ AppBundle\Entity\User:
     credits: 0
     cash: 0
     reputation: 0
+    inventory: '@inventarioUser'
+
+
+
 #DISTRITOS
 AppBundle\Entity\District:
   distrito_1:
