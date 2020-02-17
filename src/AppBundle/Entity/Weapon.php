@@ -190,7 +190,7 @@ class Weapon
 
     public function __toString()
     {
-        return $this->getName();
+        return $this->getName()." PODER:".$this->getDamage()." // Valor:".$this->getValue();
     }
 
 }

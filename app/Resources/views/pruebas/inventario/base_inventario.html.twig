@@ -1,0 +1,209 @@
+{% extends 'pruebas/base_usuario.html.twig' %}
+
+{% block centro %}
+
+    <div id="inventario">
+        <h3>INVENTARIO</h3>
+        <p>CAPACITY: {{ inventory.currentCapacity }}/{{ inventory.maxCapacity }}</p>
+        <nav>
+            <ul>
+                <li class="letra_equipo">ARMAS</li>
+                <li class="letra_equipo">ITEM</li>
+                <li class="letra_equipo">ITEM</li>
+                <li class="letra_equipo">ITEM</li>
+            </ul>
+        </nav>
+
+
+        <div class="tabla_detalles">
+        </div>
+        <div id="inventario_armas" class="inventario_seccion">
+
+                <table class="tabla_items">
+                    {% for arma in inventory.weapons %}
+                        <tr class="inventario_item">
+                            <td class="arma_nombre item_td">{{ arma.name }}</td><td class="arma_daño item_td">{{ arma.damage }}</td><td class="arma_valor item_td">{{ arma.value }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+
+        </div>
+    </div>
+
+
+
+{%   set clr_main_claro = "#222222" %}
+    <style>
+
+        #inventario{
+            text-align: left;
+        }
+        #inventario > h3, #inventario > p {
+            text-align: center;
+        }
+
+        #inventario > nav > ul{
+            background-color: var(--color-neon);
+            display: flex;
+            text-align: center;
+        }
+
+        #inventario > nav >ul {
+            margin: auto auto;
+            border-bottom: 2px inset var(--color-borde-azul);
+            border-top: 2px outset var(--color-borde-azul);
+        }
+
+        #inventario > nav > ul > li {
+            padding: 0.5em 1em;
+            margin: 0 auto;
+
+        }
+
+        #inventario > nav > ul > li:hover {
+            cursor: pointer;
+        }
+
+        .inventario_seccion{
+            position:relative;
+            left:2px;
+            text-align: left;
+        }
+
+        .inventario_activo{
+            display: block;
+        }
+        .inventario_inactivo{
+            display: none;
+        }
+
+        .inventario_seccion{
+            position:relative;
+            left: 0;
+            top: 0;
+            /*background-color: darkred;*/
+            display:inline-block;
+        }
+        .tabla_items{
+            margin: 1em 1em;
+            width: 45%;
+        }
+        .item_td{
+            margin-top: 0.5em;
+            color:white;
+            padding:0.2em 0.5em;
+        }
+
+        .inventario_item{
+
+            border: 4px solid var(--color-borde-rosa);
+        }
+        .arma_nombre{
+            border-top: 2px solid var(--color-borde-rosa);
+            border-bottom: 2px solid var(--color-borde-rosa);
+            border-left: 2px solid var(--color-borde-rosa);
+        }
+        .arma_daño{
+            border-top: 2px solid var(--color-borde-rosa);
+            border-bottom: 2px solid var(--color-borde-rosa);
+        }
+        .arma_valor{
+            border-top: 2px solid var(--color-borde-rosa);
+            border-bottom: 2px solid var(--color-borde-rosa);
+            border-right: 2px solid var(--color-borde-rosa);
+        }
+
+        #tablas_stats{
+            margin:2.5em 1em 0.5em;
+            width: 30%;
+        }
+        .tabla_equipo{
+            width:100%;
+            display:inline-block;
+            border-top: 1px outset var(--color-borde-rosa);
+            border-bottom: 1px inset var(--color-borde-rosa);
+            border-left:1px outset var(--color-borde-rosa);
+            border-right:1px inset var(--color-borde-rosa);
+            margin-top:0.3em;
+        }
+        .tabla_equipo:hover{
+            background-color: var(--color-green-soft);
+
+        }
+        .letra_top{
+            font-family: MatrixBook;
+            font-weight: bolder;
+            color: var(--color-neon);
+        }
+        .letra_sub{
+            font-weight: bold;
+            font-family: candara;
+            font-style: italic;
+            color: var(--color-borde-azul);
+        }
+        .letra_lvl{
+            font-family: MatrixBoldSmallCaps;
+            color:  var(--color-borde-azul);
+        }
+        .letra_equipo{
+
+            font-family: MatrixBook;
+            font-weight: bolder;
+            color: var(--color-borde-rosa);
+        }
+        .letra_equipo_sub{
+
+            font-family: MatrixBook;
+            font-weight: lighter;
+            color: var(--color-borde-azul);
+        }
+        .nombre_arma{
+            margin-left:20%;
+            font-family:ModMatrix;
+            color: var(--color-borde-rosa);
+        }
+        .letra_stat{
+            margin-left: 20%;
+            font-family: ModMatrix;
+            color: var(--color-neon);
+        }
+        .titulo_equipo{
+            border-bottom: 0.5px solid var(--color-borde-azul);
+        }
+        .tabla_detalles{
+            position:fixed;
+            left: 55%;
+            width: 35%;
+        }
+
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+           var btns = document.getElementsByClassName("letra_equipo");
+           var secciones = document.getElementsByClassName("inventario_seccion");
+           for (let i= 0; i < secciones.length; i++){
+               secciones[i].style.display = "none";
+           }
+           for (let i=0;i<btns.length;i++){
+               //sustituir la función anónima por cambiarSeccion()
+               btns[i].addEventListener("click", function(){
+                   var clase = "inventario_" + this.innerText.toLowerCase();
+                   var seccion_items = document.getElementById(clase);
+                   if (seccion_items.style.display == "block"){
+                       seccion_items.style.display = "none";
+                   } else{
+                       seccion_items.style.display = "block";
+                   }
+               })
+           }
+        });
+
+        function cambiarSeccion(){
+
+        }
+    </script>
+
+{% endblock %}
+

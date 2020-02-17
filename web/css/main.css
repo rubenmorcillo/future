@@ -174,21 +174,6 @@ body {
   color: #0b0b0b;
 }
 
-/*.rrsst {*/
-  /*font: 8px play;*/
-  /*font-weight: 400;*/
-  /*letter-spacing: 15px;*/
-  /*text-transform: uppercase;*/
-  /*line-height: 100%;*/
-  /*margin-left: 10px;*/
-  /*color: #fff;*/
-  /*text-shadow: none;*/
-  /*position: relative;*/
-  /*top: 180px;*/
-  /*left: 370px;*/
-  /*z-index: 2;*/
-/*}*/
-
 .hd_quick a {
   text-decoration: none;
   color: #888;
@@ -261,12 +246,10 @@ body {
   position:relative;
   top: var(--header_down_line);
   left: 26em;
-  width:55em;
+  width: 65%;
   height: 500px;
   border: 2px inset var(--color-borde-azul);
 }
-
-
 
 /*esto no se si está funcionando*/
 ::-webkit-scrollbar { width: 7px; }
