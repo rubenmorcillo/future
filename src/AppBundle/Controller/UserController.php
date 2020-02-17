@@ -7,7 +7,6 @@ use AppBundle\Entity\PrincipalCharacter;
 use AppBundle\Entity\User;
 use AppBundle\Form\Type\PrincipalCharacterType;
 use AppBundle\Form\Type\UserType;
-use AppBundle\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -106,8 +105,6 @@ class UserController extends Controller
                }
 
                $inventory = new Inventory();
-               $inventory->setMaxCapacity(100);
-               $inventory->setCurrentCapacity(0);
 
                $user->setInventory($inventory);
                $user->setPassword($form->get('password')->getData());

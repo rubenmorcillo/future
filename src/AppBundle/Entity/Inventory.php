@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,16 +39,19 @@ class Inventory
      */
     private $maxCapacity;
 
-    /**
-     * @ORM\Column(type="integer")
-     * @var int
-     */
     private $currentCapacity;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Weapon", mappedBy="inventory")
+     * @var Weapon[]
+     */
+    private $weapons;
 
     public function __construct()
     {
         $this->maxCapacity = 100;
-        $this->currentCapacity = 0;
+        $this->currentCapacity = $this->weapons->count();
+        $this->weapons = new ArrayCollection();
     }
 
 
@@ -110,7 +114,7 @@ class Inventory
      */
     public function getCurrentCapacity()
     {
-        return $this->currentCapacity;
+        return  $this->weapons->count();
     }
 
     /**
@@ -122,5 +126,25 @@ class Inventory
         $this->currentCapacity = $currentCapacity;
         return $this;
     }
+
+    /**
+     * @return Weapon[]
+     */
+    public function getWeapons()
+    {
+
+        return $this->weapons;
+    }
+
+    /**
+     * @param Weapon[] $weapons
+     * @return Inventory
+     */
+    public function setWeapons($weapons)
+    {
+        $this->weapons = $weapons;
+        return $this;
+    }
+
 
 }

@@ -1,4 +1,4 @@
-#USUARIOS
+#INVENTARIO
 AppBundle\Entity\Inventory:
   inventarioAdmin:
     maxCapacity: 999
@@ -8,6 +8,7 @@ AppBundle\Entity\Inventory:
     maxCapacity: 100
     currentCapacity: 0
 
+#USUARIOS
 AppBundle\Entity\User:
   Admin:
     login: admin
@@ -29,7 +30,27 @@ AppBundle\Entity\User:
     reputation: 0
     inventory: '@inventarioUser'
 
+#ARMAS
+AppBundle\Entity\WeaponClass:
+  pistola:
+    literal: pistola
 
+
+  espada:
+    literal: espada
+
+AppBundle\Entity\Weapon:
+  arma1:
+    name: cuchillo
+    class: '@espada'
+    inventory: '@inventarioAdmin'
+    damage: 1
+
+  arma2:
+    name: '9 mm'
+    class: '@pistola'
+    inventory: '@inventarioAdmin'
+    damage: 2
 
 #DISTRITOS
 AppBundle\Entity\District:
