@@ -38,4 +38,16 @@ class GameController extends Controller
         return $this->render('pruebas/base_comandante.html.twig', [
         ]);
     }
+
+    /**
+     * @Route("/cyberwares", name="lista_soldados")
+     * @Security("is_granted('ROLE_PLAYER')")
+     */
+    public function soldierList(){
+        $user = $this->getUser();
+
+        return $this->render('pruebas/base_cyberwares.html.twig', [
+            'user' => $user
+        ]);
+    }
 }

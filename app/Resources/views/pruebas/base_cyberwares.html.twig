@@ -1,0 +1,34 @@
+{% extends 'pruebas/base_usuario.html.twig' %}
+
+{% block centro %}
+    <div>
+
+        <table class="tabla_cartas table-responsive-lg panel_fondo_transparente">
+
+            {% set raiz =  'recursos/cardsImages/' %}
+
+            <tr class="fila_tabla primera_fila_tabla">
+                {%  for soldado in user.soldiers %}
+
+                    {% set image = soldado.class.image %}
+
+                {% if loop.index == 6 or loop.index == 11 or loop.index == 15 or loop.index == 20%}
+            </tr>
+            <tr class="fila_tabla {{ loop.index}}" >
+                {% endif %}
+
+
+                <td class=""><a href="#">
+                        <img class="img_carta_lista" style="height: 140px; width: 135px;" src="{{ asset(raiz~image~'.jpg') }}">
+                    </a>
+                </td>
+
+                {% endfor %}
+        </table>
+    </div>
+
+    <style>
+
+
+    </style>
+{% endblock %}
