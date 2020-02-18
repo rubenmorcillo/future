@@ -8,6 +8,8 @@ AppBundle\Entity\Inventory:
     maxCapacity: 100
     currentCapacity: 0
 
+
+
 #USUARIOS
 AppBundle\Entity\User:
   Admin:
@@ -215,32 +217,66 @@ AppBundle\Entity\PrincipalCharacter:
     class: '@classCharacter_1'
     owner: '@Admin'
 
-
 #CLASES DE SOLDADOS COLECCIONABLES
 AppBundle\Entity\SoldierClass:
-  classSoldier_1:
-    name: soldierClass_1
-    image: soldadoClass_1.jpg
+  tipoPersonaje_1:
+    name: Adonis
+    image: adonis
     skills: '4x @habilidad*'
 
-  classSoldier_2:
-    name: soldierClass_2
-    image: soldadoClass_2.jpg
+  tipoPersonaje_2:
+    name: Akara
+    image: akara
     skills: '4x @habilidad*'
 
-  classSoldier_3:
-    name: soldierClass_3
-    image: soldadoClass_3.jpg
+  tipoPersonaje_3:
+    name: basic
+    image: basic
     skills: '4x @habilidad*'
 
-  classSoldier_4:
-    name: soldierClass_4
-    image: soldadoClass_4.jpg
+  tipoPersonaje_4:
+    name: Cobra
+    image: cobra
     skills: '4x @habilidad*'
+
+
+  tipoPersonaje_5:
+    name: Dakotae
+    image: dakotae
+    skills: '4x @habilidad*'
+
+  tipoPersonaje_6:
+    name: Exterminator
+    image: exterminator
+    skills: '4x @habilidad*'
+
+  tipoPersonaje_7:
+    name: Falcon
+    image: falcon
+    skills: '4x @habilidad*'
+
+  tipoPersonaje_8:
+    name: Galaxy
+    image: galaxy
+    skills: '4x @habilidad*'
+
+
+  tipoPersonaje_9:
+    name: Hybrid
+    image: hybrid
+    skills: '4x @habilidad*'
+
+
+  tipoPersonaje_10:
+    name: Inferno
+    image: inferno
+    skills: '4x @habilidad*'
+
+
 
 #SOLDADOS COLECCIONABLES
 AppBundle\Entity\Soldier:
-  soldier_1:
-    alias: 'recluta'
-    class: '@classSoldier_<numberBetween(1,4)>'
+  soldier_{1..10}:
+    alias: 'recluta<current()>'
+    class: '@tipoPersonaje_<numberBetween(1,10)>'
     owner: '@Admin'
