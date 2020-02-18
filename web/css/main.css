@@ -10,6 +10,7 @@
   list-style-type: none !important;
 
   /*COLORES*/
+  --bg-color-azul-oscuro: rgba(15,15,60,0.8);
   --bg-color-test1: rgba(40,60,60,0.6);
   --bg-color-test2: #a023a3;
   --color-bg-izq: rgba(10,10,10,0.6);
@@ -242,7 +243,7 @@ body {
 
 /*CENTRO*/
 #layout_centro{
-  background: var(--bg-color-test1);
+  background: var(--bg-color-azul-oscuro);
   position:relative;
   top: var(--header_down_line);
   left: 26em;

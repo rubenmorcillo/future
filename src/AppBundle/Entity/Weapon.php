@@ -63,8 +63,9 @@ class Weapon
 
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\PrincipalCharacter")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\PrincipalCharacter", inversedBy="equipedWeapon")
+     * @ORM\JoinColumn(nullable=true, unique=true)
+     * @var PrincipalCharacter
      */
     private $equiped;
 

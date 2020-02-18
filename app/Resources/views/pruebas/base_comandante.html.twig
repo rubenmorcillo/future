@@ -34,11 +34,11 @@
                     <span class="letra_equipo_sub">EQUIPADO</span>
                 </p>
                 <p>
-                    <span class="nombre_arma">acp .45</span>
+                    <span class="nombre_arma">{{ user.principalCharacter.equipedWeapon.name }}</span>
                 </p>
-                <p><span class="letra_stat">DEF</span></p>
-                <p><span class="letra_stat">EVA</span></p>
-                <p><span class="letra_stat">RES</span></p>
+                <p><span class="letra_stat">DMG</span><span class="num_stat">{{ user.principalCharacter.equipedWeapon.damage }}</span></p>
+                <p><span class="letra_stat">VLR</span><span class="num_stat">{{ user.principalCharacter.equipedWeapon.value }}</span></p>
+                <p><span class="letra_stat">...</span></p>
             </div>
             <div class=tabla_equipo>
                 <p class="titulo_equipo"> <span class="letra_equipo">NEUROIMPLANTE_</span>
@@ -158,6 +158,12 @@
             margin-left: 20%;
             font-family: ModMatrix;
             color: var(--color-neon);
+        }
+        .num_stat{
+            position:relative;
+            left:5%;
+            color:white;
+            text-align: center;
         }
         .titulo_equipo{
             border-bottom: 0.5px solid var(--color-borde-azul);
