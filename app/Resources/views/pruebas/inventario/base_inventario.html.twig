@@ -23,12 +23,10 @@
                     {% for arma in inventory.weapons %}
                         <tr class="inventario_item">
                             <td class="arma_nombre item_td">{{ arma.name }}</td><td class="arma_daño item_td">{{ arma.damage }}</td><td class="arma_valor item_td">{{ arma.value }}</td>
-                            {% if arma.equiped %}<td class="item_td arma_equipada">E</td> {% endif %}
+                            {% if arma.equiped %}<td class="item_td arma_equipada">E</td>{% else %} <td><a href="{{ path('equipar_arma', {'id':arma.id}) }}">Equipar</a></td> {% endif %}
                         </tr>
                     {% endfor %}
                 </table>
-
-
         </div>
     </div>
 
