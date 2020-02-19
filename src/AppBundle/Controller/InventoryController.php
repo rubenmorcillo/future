@@ -13,12 +13,13 @@ class InventoryController extends Controller
 {
 
     /**
-     * @Route("/inventory", name="inventario")
+     * @Route("/inventory/{section}", name="inventario", defaults={"section":1})
      * @Security("is_granted('ROLE_PLAYER')")
      */
-    public function inventoryAction(){
+    public function inventoryAction($section){
 
         return $this->render('pruebas/inventario/base_inventario.html.twig', [
+            'section' => $section,
             'inventory' => $this->getUser()->getInventory()
         ]);
     }
@@ -43,7 +44,7 @@ class InventoryController extends Controller
             $em->flush();
         }catch (\Exception $e){
         }
-        return $this->redirectToRoute('inventario');
+        return $this->redirectToRoute('inventario', ['section' => 1]);
     }
 
 }

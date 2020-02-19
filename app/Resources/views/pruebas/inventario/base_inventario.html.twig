@@ -17,13 +17,13 @@
 
         <div class="tabla_detalles">
         </div>
-        <div id="inventario_armas" class="inventario_seccion">
+        <div id="inventario_armas" class="inventario_seccion  {% if section == 1  %} inventario_activo {% else %} inventario_inactivo{% endif %}">
 
                 <table class="tabla_items">
                     {% for arma in inventory.weapons %}
                         <tr class="inventario_item">
                             <td class="arma_nombre item_td">{{ arma.name }}</td><td class="arma_daño item_td">{{ arma.damage }}</td><td class="arma_valor item_td">{{ arma.value }}</td>
-                            {% if arma.equiped %}<td class="item_td arma_equipada">E</td>{% else %} <td><a href="{{ path('equipar_arma', {'id':arma.id}) }}">Equipar</a></td> {% endif %}
+                            {% if arma.equiped %}<td class="item_td arma_equipada">E</td>{% else %} <td><a href="{{ path('equipar_arma', {'weapon':arma.id}) }}">Equipar</a></td> {% endif %}
                         </tr>
                     {% endfor %}
                 </table>
@@ -201,6 +201,8 @@
            for (let i= 0; i < secciones.length; i++){
                secciones[i].style.display = "none";
            }
+           var activo = document.getElementsByClassName("inventario_activo")[0];
+           activo.style.display = "block";
            for (let i=0;i<btns.length;i++){
                //sustituir la función anónima por cambiarSeccion()
                btns[i].addEventListener("click", function(){
