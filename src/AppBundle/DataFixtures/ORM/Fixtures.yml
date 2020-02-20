@@ -54,6 +54,20 @@ AppBundle\Entity\Weapon:
     inventory: '@inventarioAdmin'
     damage: 2
 
+#HELMET
+AppBundle\Entity\Helmet:
+  helmet1:
+    mame: gorra
+    defense: 1
+    value: 1
+    inventory: '@inventarioAdmin'
+
+  helmet2:
+    name: casco
+    defense: 4
+    value: 2
+    inventory: '@inventarioAdmin'
+
 #DISTRITOS
 AppBundle\Entity\District:
   distrito_1:

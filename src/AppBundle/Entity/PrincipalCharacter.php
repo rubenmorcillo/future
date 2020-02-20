@@ -64,6 +64,14 @@ class PrincipalCharacter
      */
     private $equipedWeapon;
 
+
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Weapon", mappedBy="equiped")
+     * @ORM\JoinColumn(nullable=true)
+     * @var Weapon
+     */
+    private $equipedHelmet;
+
     /**
      * @return int
      */
@@ -189,6 +197,25 @@ class PrincipalCharacter
         $this->equipedWeapon = $equipedWeapon;
         return $this;
     }
+
+    /**
+     * @return Weapon
+     */
+    public function getEquipedHelmet()
+    {
+        return $this->equipedHelmet;
+    }
+
+    /**
+     * @param Weapon $equipedHelmet
+     * @return PrincipalCharacter
+     */
+    public function setEquipedHelmet($equipedHelmet)
+    {
+        $this->equipedHelmet = $equipedHelmet;
+        return $this;
+    }
+
 
     public function __toString()
     {

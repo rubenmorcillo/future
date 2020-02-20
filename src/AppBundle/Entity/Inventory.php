@@ -47,11 +47,18 @@ class Inventory
      */
     private $weapons;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Helmet", mappedBy="inventory")
+     * @var Helmet[]
+     */
+    private $helmets;
+
     public function __construct()
     {
         $this->maxCapacity = 100;
         $this->currentCapacity = 0;
         $this->weapons = new ArrayCollection();
+        $this->helmets = new ArrayCollection();
     }
 
 
@@ -147,6 +154,24 @@ class Inventory
     public function setWeapons($weapons)
     {
         $this->weapons = $weapons;
+        return $this;
+    }
+
+    /**
+     * @return Helmet[]
+     */
+    public function getHelmets()
+    {
+        return $this->helmets;
+    }
+
+    /**
+     * @param Helmet[] $helmets
+     * @return Inventory
+     */
+    public function setHelmets($helmets)
+    {
+        $this->helmets = $helmets;
         return $this;
     }
 
