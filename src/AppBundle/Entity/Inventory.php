@@ -50,7 +50,7 @@ class Inventory
     public function __construct()
     {
         $this->maxCapacity = 100;
-        $this->currentCapacity = $this->weapons->count();
+        $this->currentCapacity = 0;
         $this->weapons = new ArrayCollection();
     }
 
@@ -114,7 +114,11 @@ class Inventory
      */
     public function getCurrentCapacity()
     {
-        return  $this->weapons->count();
+        $currentCapacity = 0;
+        if (!$this->weapons->isEmpty()){
+            $currentCapacity = $this->weapons->count();
+        }
+        return  $currentCapacity;
     }
 
     /**

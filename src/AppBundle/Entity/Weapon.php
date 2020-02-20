@@ -61,6 +61,14 @@ class Weapon
      */
     private $inventory;
 
+
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\PrincipalCharacter", inversedBy="equipedWeapon")
+     * @ORM\JoinColumn(nullable=true, unique=true)
+     * @var PrincipalCharacter
+     */
+    private $equiped;
+
     /**
      * @return int
      */
@@ -184,6 +192,24 @@ class Weapon
     public function setInventory($inventory)
     {
         $this->inventory = $inventory;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEquiped()
+    {
+        return $this->equiped;
+    }
+
+    /**
+     * @param mixed $equiped
+     * @return Weapon
+     */
+    public function setEquiped($equiped)
+    {
+        $this->equiped = $equiped;
         return $this;
     }
 

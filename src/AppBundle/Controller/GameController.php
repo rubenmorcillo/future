@@ -36,6 +36,7 @@ class GameController extends Controller
         $user = $this->getUser();
 
         return $this->render('pruebas/base_comandante.html.twig', [
+            'user' => $user
         ]);
     }
 
