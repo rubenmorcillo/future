@@ -54,15 +54,19 @@
 
             </div>
             <div class=tabla_equipo>
-                <p class="titulo_equipo"> <span class="letra_equipo">NEUROIMPLANTE_</span>
+                <p class="titulo_equipo"> <span class="letra_equipo">NEURO-IMPLANTE_</span>
+                    {% if user.principalCharacter.equipedNeuroimplant %}
                     <span class="letra_equipo_sub">EQUIPADO</span>
                 </p>
+
                 <p>
-                    <span class="nombre_arma">IKX_33</span>
+                    <span class="nombre_arma">{% if user.principalCharacter.equipedNeuroimplant %}{{ user.principalCharacter.equipedNeuroimplant.name|upper  }}{% endif %}</span>
                 </p>
-                <p><span class="letra_stat">DEF</span></p>
-                <p><span class="letra_stat">EVA</span></p>
-                <p><span class="letra_stat">RES</span></p>
+
+                <p><span class="letra_stat">AGI</span><span class="num_stat">{% if user.principalCharacter.equipedNeuroimplant %}{{ user.principalCharacter.equipedNeuroimplant.agility }}{% endif %}</span></p>
+                <p><span class="letra_stat">VLR</span><span class="num_stat">{% if user.principalCharacter.equipedNeuroimplant %}{{ user.principalCharacter.equipedNeuroimplant.value }}{% endif %}</span></p>
+                {% endif %}
+                <p><span class="letra_stat">...</span></p>
             </div>
         </div>
 

@@ -10,7 +10,7 @@
                 <li class="letra_equipo">ARMAS</li>
                 <li class="letra_equipo">CASCOS</li>
                 <li class="letra_equipo">CHAQUETAS</li>
-                <li class="letra_equipo">ITEM</li>
+                <li class="letra_equipo">NEURO-IMPLANTES</li>
             </ul>
         </nav>
 
@@ -43,6 +43,16 @@
                     <tr class="inventario_item">
                         <td class="arma_nombre item_td">{{ jacket.name }}</td><td class="arma_daño item_td">{{ jacket.defense }}</td><td class="arma_valor item_td">{{ jacket.value }}</td>
                         {% if jacket.equiped %}<td class="item_td equipado">E</td>{% else %} <td class="item_td btn_equip"> <a href="{{ path('equipar_chaqueta', {'jacket':jacket.id}) }}">[...]</a></td> {% endif %}
+                    </tr>
+                {% endfor %}
+            </table>
+
+
+            <table id ="tabla_neuro-implantes" class="tabla_items  {% if section == 4  %} inventario_activo {% else %} tabla_oculta{% endif %}">
+                {% for neuroimplant in inventory.neuroimplants %}
+                    <tr class="inventario_item">
+                        <td class="arma_nombre item_td">{{ neuroimplant.name }}</td><td class="arma_daño item_td">{{ neuroimplant.agility }}</td><td class="arma_valor item_td">{{ neuroimplant.value }}</td>
+                        {% if neuroimplant.equiped %}<td class="item_td equipado">E</td>{% else %} <td class="item_td btn_equip"> <a href="{{ path('equipar_neuroimplante', {'neuroimplant':neuroimplant.id}) }}">[...]</a></td> {% endif %}
                     </tr>
                 {% endfor %}
             </table>

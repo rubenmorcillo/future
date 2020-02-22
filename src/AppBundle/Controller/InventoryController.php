@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Helmet;
 use AppBundle\Entity\Jacket;
+use AppBundle\Entity\Neuroimplant;
 use AppBundle\Entity\PrincipalCharacter;
 use AppBundle\Entity\Weapon;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -96,6 +97,31 @@ class InventoryController extends Controller
             $this->addFlash('error', $e->getMessage());
         }
         return $this->redirectToRoute('inventario', ['section' => 3]);
+    }
+
+
+    /**
+     * @Route("/equip/neuroimplant/{neuroimplant}/", name="equipar_neuroimplante")
+     * @Security("is_granted('ROLE_PLAYER')")
+     */
+    public function equipNeuroimplant(Neuroimplant $neuroimplant){
+
+
+        $principalCharacter = $this->getUser()->getPrincipalCharacter();
+        $oldneuroimplant = $principalCharacter->getEquipedNeuroimplant();
+        if ($oldneuroimplant != null){
+            $oldneuroimplant->setEquiped(null);
+        }
+        $neuroimplant->setEquiped($principalCharacter);
+        $principalCharacter->setEquipedNeuroimplant($neuroimplant);
+
+        $em = $this->getDoctrine()->getManager();
+        try{
+            $em->flush();
+        }catch (\Exception $e){
+            $this->addFlash('error', $e->getMessage());
+        }
+        return $this->redirectToRoute('inventario', ['section' => 4]);
     }
 
 
