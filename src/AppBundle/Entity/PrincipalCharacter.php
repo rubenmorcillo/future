@@ -80,6 +80,13 @@ class PrincipalCharacter
     private $equipedJacket;
 
     /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Neuroimplant", mappedBy="equiped")
+     * @ORM\JoinColumn(nullable=true)
+     * @var Neuroimplant
+     */
+    private $equipedNeuroimplant;
+
+    /**
      * @return int
      */
     public function getId()
@@ -238,6 +245,24 @@ class PrincipalCharacter
     public function setEquipedJacket($equipedJacket)
     {
         $this->equipedJacket = $equipedJacket;
+        return $this;
+    }
+
+    /**
+     * @return Neuroimplant
+     */
+    public function getEquipedNeuroimplant()
+    {
+        return $this->equipedNeuroimplant;
+    }
+
+    /**
+     * @param Neuroimplant $equipedNeuroimplant
+     * @return PrincipalCharacter
+     */
+    public function setEquipedNeuroimplant($equipedNeuroimplant)
+    {
+        $this->equipedNeuroimplant = $equipedNeuroimplant;
         return $this;
     }
 

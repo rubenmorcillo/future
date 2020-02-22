@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Rubén
  * Date: 22/02/2020
- * Time: 12:36
+ * Time: 13:32
  */
 
 namespace AppBundle\Entity;
@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="jacket")
+ * @ORM\Table(name="neuroimplant")
  */
-class Jacket
+class Neuroimplant
 {
 
     /**
@@ -36,7 +36,7 @@ class Jacket
      * @ORM\Column(type="integer")
      * @var int
      */
-    private $defense;
+    private $agility;
 
     /**
      * @ORM\Column(type="integer")
@@ -45,13 +45,13 @@ class Jacket
     private $value;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Inventory", inversedBy="jackets")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Inventory", inversedBy="neuroimplants")
      * @var Inventory
      */
     private $inventory;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\PrincipalCharacter", inversedBy="equipedJacket")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\PrincipalCharacter", inversedBy="equipedNeuroimplant")
      * @var User
      */
     private $equiped;
@@ -66,7 +66,7 @@ class Jacket
 
     /**
      * @param int $id
-     * @return Jacket
+     * @return Neuroimplant
      */
     public function setId($id)
     {
@@ -84,7 +84,7 @@ class Jacket
 
     /**
      * @param string $name
-     * @return Jacket
+     * @return Neuroimplant
      */
     public function setName($name)
     {
@@ -95,18 +95,18 @@ class Jacket
     /**
      * @return int
      */
-    public function getDefense()
+    public function getAgility()
     {
-        return $this->defense;
+        return $this->agility;
     }
 
     /**
-     * @param int $defense
-     * @return Jacket
+     * @param int $agility
+     * @return Neuroimplant
      */
-    public function setDefense($defense)
+    public function setAgility($agility)
     {
-        $this->defense = $defense;
+        $this->agility = $agility;
         return $this;
     }
 
@@ -120,7 +120,7 @@ class Jacket
 
     /**
      * @param int $value
-     * @return Jacket
+     * @return Neuroimplant
      */
     public function setValue($value)
     {
@@ -138,7 +138,7 @@ class Jacket
 
     /**
      * @param Inventory $inventory
-     * @return Jacket
+     * @return Neuroimplant
      */
     public function setInventory($inventory)
     {
@@ -147,7 +147,7 @@ class Jacket
     }
 
     /**
-     * @return mixed
+     * @return User
      */
     public function getEquiped()
     {
@@ -155,14 +155,13 @@ class Jacket
     }
 
     /**
-     * @param mixed $equiped
-     * @return Jacket
+     * @param User $equiped
+     * @return Neuroimplant
      */
     public function setEquiped($equiped)
     {
         $this->equiped = $equiped;
         return $this;
     }
-
 
 }
