@@ -47,19 +47,21 @@ AppBundle\Entity\Weapon:
     class: '@espada'
     inventory: '@inventarioAdmin'
     damage: 1
+    value: 12
 
   arma2:
     name: '9 mm'
     class: '@pistola'
     inventory: '@inventarioAdmin'
     damage: 2
+    value: 23
 
 #HELMET
 AppBundle\Entity\Helmet:
   helmet1:
-    mame: gorra
+    name: gorra
     defense: 1
-    value: 1
+    value: 0
     inventory: '@inventarioAdmin'
 
   helmet2:
