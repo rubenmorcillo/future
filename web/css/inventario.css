@@ -29,27 +29,33 @@
 
 .inventario_seccion{
     position:relative;
-    left:2px;
-    text-align: left;
+    left: 0;
+    top: 0;
+    display:block;
 }
 
-.inventario_activo{
-    display: block;
-}
-.inventario_inactivo{
+.tabla_oculta{
     display: none;
 }
 
-.inventario_seccion{
-    position:relative;
-    left: 0;
-    top: 0;
-    display:inline-block;
-}
+
 .tabla_items{
-    margin: 1em 1em;
+    position: absolute;
+    top:2em;
+    left: 2em;
     width: 45%;
 }
+#inventario .tabla_detalles{
+    position:relative;
+    left: 55%;
+    top: 2em;
+    width: 40%;
+    height: 50vh;
+    border:2px solid var(--color-neon);
+    background-color: var(--bg-color-test1);
+
+}
+
 .item_td{
     margin-top: 0.5em;
     color:white;
@@ -159,9 +165,4 @@
 }
 .titulo_equipo{
     border-bottom: 0.5px solid var(--color-borde-azul);
-}
-.tabla_detalles{
-    position:fixed;
-    left: 55%;
-    width: 35%;
 }
