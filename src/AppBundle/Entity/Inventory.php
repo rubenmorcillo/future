@@ -59,6 +59,12 @@ class Inventory
      */
     private $jackets;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Neuroimplant", mappedBy="inventory")
+     * @var Neuroimplant[]
+     */
+    private $neuroimplants;
+
     public function __construct()
     {
         $this->maxCapacity = 100;
@@ -66,6 +72,7 @@ class Inventory
         $this->weapons = new ArrayCollection();
         $this->helmets = new ArrayCollection();
         $this->jackets = new ArrayCollection();
+        $this->neuroimplants = new ArrayCollection();
     }
 
 
@@ -200,5 +207,22 @@ class Inventory
         return $this;
     }
 
+    /**
+     * @return Neuroimplant[]
+     */
+    public function getNeuroimplants()
+    {
+        return $this->neuroimplants;
+    }
+
+    /**
+     * @param Neuroimplant[] $neuroimplants
+     * @return Inventory
+     */
+    public function setNeuroimplants($neuroimplants)
+    {
+        $this->neuroimplants = $neuroimplants;
+        return $this;
+    }
 
 }
