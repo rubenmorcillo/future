@@ -73,6 +73,13 @@ class PrincipalCharacter
     private $equipedHelmet;
 
     /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Jacket", mappedBy="equiped")
+     * @ORM\JoinColumn(nullable=true)
+     * @var Jacket
+     */
+    private $equipedJacket;
+
+    /**
      * @return int
      */
     public function getId()
@@ -213,6 +220,24 @@ class PrincipalCharacter
     public function setEquipedHelmet($equipedHelmet)
     {
         $this->equipedHelmet = $equipedHelmet;
+        return $this;
+    }
+
+    /**
+     * @return Jacket
+     */
+    public function getEquipedJacket()
+    {
+        return $this->equipedJacket;
+    }
+
+    /**
+     * @param Jacket $equipedJacket
+     * @return PrincipalCharacter
+     */
+    public function setEquipedJacket($equipedJacket)
+    {
+        $this->equipedJacket = $equipedJacket;
         return $this;
     }
 

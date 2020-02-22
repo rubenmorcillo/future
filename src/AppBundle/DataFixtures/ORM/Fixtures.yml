@@ -70,6 +70,20 @@ AppBundle\Entity\Helmet:
     value: 2
     inventory: '@inventarioAdmin'
 
+#CHAQUETAS
+AppBundle\Entity\Jacket:
+  jacket1:
+    name: 'Chaqueta de cuero'
+    defense: 5
+    value: 15
+    inventory: '@inventarioAdmin'
+
+  jacket2:
+    name: 'peto guerrero'
+    defense: 10
+    value: 50
+    inventory: '@inventarioAdmin'
+
 #DISTRITOS
 AppBundle\Entity\District:
   distrito_1:
