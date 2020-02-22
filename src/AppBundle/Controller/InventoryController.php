@@ -3,11 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Helmet;
+use AppBundle\Entity\Jacket;
 use AppBundle\Entity\PrincipalCharacter;
 use AppBundle\Entity\Weapon;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
+
 use Symfony\Component\Routing\Annotation\Route;
 
 class InventoryController extends Controller
@@ -70,6 +71,31 @@ class InventoryController extends Controller
             $this->addFlash('error', $e->getMessage());
         }
         return $this->redirectToRoute('inventario', ['section' => 2]);
+    }
+
+
+    /**
+     * @Route("/equip/jacket/{jacket}/", name="equipar_chaqueta")
+     * @Security("is_granted('ROLE_PLAYER')")
+     */
+    public function equipJacket(Jacket $jacket){
+
+
+        $principalCharacter = $this->getUser()->getPrincipalCharacter();
+        $oldJacket = $principalCharacter->getEquipedJacket();
+        if ($oldJacket != null){
+            $oldJacket->setEquiped(null);
+        }
+        $jacket->setEquiped($principalCharacter);
+        $principalCharacter->setEquipedJacket($jacket);
+
+        $em = $this->getDoctrine()->getManager();
+        try{
+            $em->flush();
+        }catch (\Exception $e){
+            $this->addFlash('error', $e->getMessage());
+        }
+        return $this->redirectToRoute('inventario', ['section' => 3]);
     }
 
 

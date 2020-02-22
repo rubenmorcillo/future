@@ -9,7 +9,7 @@
             <ul>
                 <li class="letra_equipo">ARMAS</li>
                 <li class="letra_equipo">CASCOS</li>
-                <li class="letra_equipo">ITEM</li>
+                <li class="letra_equipo">CHAQUETAS</li>
                 <li class="letra_equipo">ITEM</li>
             </ul>
         </nav>
@@ -34,6 +34,15 @@
                     <tr class="inventario_item">
                         <td class="arma_nombre item_td">{{ helmet.name }}</td><td class="arma_daño item_td">{{ helmet.defense }}</td><td class="arma_valor item_td">{{ helmet.value }}</td>
                         {% if helmet.equiped %}<td class="item_td equipado">E</td>{% else %} <td class="item_td btn_equip"> <a href="{{ path('equipar_casco',  {'helmet':helmet.id} ) }}">[...]</a></td> {% endif %}
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <table id ="tabla_chaquetas" class="tabla_items  {% if section == 3  %} inventario_activo {% else %} tabla_oculta{% endif %}">
+                {% for jacket in inventory.jackets %}
+                    <tr class="inventario_item">
+                        <td class="arma_nombre item_td">{{ jacket.name }}</td><td class="arma_daño item_td">{{ jacket.defense }}</td><td class="arma_valor item_td">{{ jacket.value }}</td>
+                        {% if jacket.equiped %}<td class="item_td equipado">E</td>{% else %} <td class="item_td btn_equip"> <a href="{{ path('equipar_chaqueta', {'jacket':jacket.id}) }}">[...]</a></td> {% endif %}
                     </tr>
                 {% endfor %}
             </table>
