@@ -8,54 +8,64 @@
         <nav>
             <ul>
                 <li class="letra_equipo">ARMAS</li>
-                <li class="letra_equipo">ITEM</li>
+                <li class="letra_equipo">CASCOS</li>
                 <li class="letra_equipo">ITEM</li>
                 <li class="letra_equipo">ITEM</li>
             </ul>
         </nav>
 
+{% block inventario %}
 
-        <div class="tabla_detalles">
-        </div>
-        <div id="inventario_armas" class="inventario_seccion  {% if section == 1  %} inventario_activo {% else %} inventario_inactivo{% endif %}">
-
-                <table class="tabla_items">
+        <div class="inventario_seccion ">
+            <div class="tabla_detalles tabla_armas">
+                <p>aqui van los detalles</p>
+            </div>
+                <table id="tabla_armas" class="tabla_items  {% if section == 1  %} inventario_activo {% else %} tabla_oculta{% endif %}">
                     {% for arma in inventory.weapons %}
                         <tr class="inventario_item">
                             <td class="arma_nombre item_td">{{ arma.name }}</td><td class="arma_daño item_td">{{ arma.damage }}</td><td class="arma_valor item_td">{{ arma.value }}</td>
-                            {% if arma.equiped %}<td class="item_td equipado">E</td>{% else %} <td class="item_td btn_equip"> <a href="{{ path('equipar_arma', {'weapon':arma.id}) }}">[...]</a></td> {% endif %}
+                            {% if arma.equiped %}<td class="item_td equipado">E</td>{% else %} <td class="item_td btn_equip"> <a href="{{ path('equipar_arma',  {'weapon':arma.id}) }}">[...]</a></td> {% endif %}
                         </tr>
                     {% endfor %}
                 </table>
+
+            <table id ="tabla_cascos" class="tabla_items  {% if section == 2  %} inventario_activo {% else %} tabla_oculta{% endif %}">
+                {% for helmet in inventory.helmets %}
+                    <tr class="inventario_item">
+                        <td class="arma_nombre item_td">{{ helmet.name }}</td><td class="arma_daño item_td">{{ helmet.defense }}</td><td class="arma_valor item_td">{{ helmet.value }}</td>
+                        {% if helmet.equiped %}<td class="item_td equipado">E</td>{% else %} <td class="item_td btn_equip"> <a href="{{ path('equipar_casco',  {'helmet':helmet.id} ) }}">[...]</a></td> {% endif %}
+                    </tr>
+                {% endfor %}
+            </table>
+
         </div>
+
+
+
+{% endblock %}
     </div>
 
 
     <script>
         document.addEventListener("DOMContentLoaded", function(){
-           var btns = document.getElementsByClassName("letra_equipo");
-           var secciones = document.getElementsByClassName("inventario_seccion");
-           for (let i= 0; i < secciones.length; i++){
-               secciones[i].style.display = "none";
-           }
-           var activo = document.getElementsByClassName("inventario_activo")[0];
-           activo.style.display = "block";
-           for (let i=0;i<btns.length;i++){
-               //sustituir la función anónima por cambiarSeccion()
-               btns[i].addEventListener("click", function(){
-                   var clase = "inventario_" + this.innerText.toLowerCase();
-                   var seccion_items = document.getElementById(clase);
-                   if (seccion_items.style.display == "block"){
-                       seccion_items.style.display = "none";
-                   } else{
-                       seccion_items.style.display = "block";
-                   }
-               })
-           }
+
+          var btns = document.getElementsByClassName("letra_equipo");
+
+          for (let i=0; i<btns.length; i++){
+              btns[i].addEventListener("click", cambiarSeccion);
+
+          }
+
         });
 
         function cambiarSeccion(){
-
+            var tables = document.getElementsByClassName("tabla_items");
+            for(let j=0; j<tables.length; j++){
+                tables[j].classList.add("tabla_oculta");
+            }
+            console.log(this.innerText);
+            var table = document.getElementById("tabla_"+this.innerText.toLowerCase());
+            table.classList.remove("tabla_oculta");
         }
     </script>
 

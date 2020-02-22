@@ -9,14 +9,18 @@
             </div>
             <div  class=tabla_equipo>
                 <p class="titulo_equipo"> <span class="letra_equipo">CABEZA_</span>
+                    {% if user.principalCharacter.equipedHelmet %}
                     <span class="letra_equipo_sub">EQUIPADO</span>
                 </p>
+
                 <p>
-                    <span class="nombre_arma">Cyber Mask</span>
+                    <span class="nombre_arma">{% if user.principalCharacter.equipedHelmet %}{{ user.principalCharacter.equipedHelmet.name|upper  }}{% endif %}</span>
                 </p>
-                <p><span class="letra_stat">DEF</span></p>
-                <p><span class="letra_stat">EVA</span></p>
-                <p><span class="letra_stat">RES</span></p>
+
+                <p><span class="letra_stat">DEF</span><span class="num_stat">{% if user.principalCharacter.equipedHelmet %}{{ user.principalCharacter.equipedHelmet.defense }}{% endif %}</span></p>
+                <p><span class="letra_stat">VLR</span><span class="num_stat">{% if user.principalCharacter.equipedHelmet %}{{ user.principalCharacter.equipedHelmet.value }}{% endif %}</span></p>
+                {% endif %}
+                <p><span class="letra_stat">...</span></p>
             </div>
             <div class=tabla_equipo>
                 <p class="titulo_equipo"> <span class="letra_equipo">CUERPO_</span>
@@ -36,7 +40,7 @@
                 </p>
 
                 <p>
-                    <span class="nombre_arma">{% if user.principalCharacter.equipedWeapon %}{{ user.principalCharacter.equipedWeapon.name }}{% endif %}</span>
+                    <span class="nombre_arma">{% if user.principalCharacter.equipedWeapon %}{{ user.principalCharacter.equipedWeapon.name|upper }}{% endif %}</span>
                 </p>
 
                 <p><span class="letra_stat">DMG</span><span class="num_stat">{% if user.principalCharacter.equipedWeapon %}{{ user.principalCharacter.equipedWeapon.damage }}{% endif %}</span></p>
