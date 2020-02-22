@@ -24,7 +24,7 @@
                     {% for arma in inventory.weapons %}
                         <tr class="inventario_item">
                             <td class="arma_nombre item_td">{{ arma.name }}</td><td class="arma_daño item_td">{{ arma.damage }}</td><td class="arma_valor item_td">{{ arma.value }}</td>
-                            {% if arma.equiped %}<td class="item_td equipado">E</td>{% else %} <td class="item_td btn_equip"> <a href="{{ path('equipar_arma', {'weapon':arma.id}) }}">[...]</a></td> {% endif %}
+                            {% if arma.equiped %}<td class="item_td equipado">E</td>{% else %} <td class="item_td btn_equip"> <a href="{{ path('equipar_arma',  {'weapon':arma.id}) }}">[...]</a></td> {% endif %}
                         </tr>
                     {% endfor %}
                 </table>
@@ -33,7 +33,7 @@
                 {% for helmet in inventory.helmets %}
                     <tr class="inventario_item">
                         <td class="arma_nombre item_td">{{ helmet.name }}</td><td class="arma_daño item_td">{{ helmet.defense }}</td><td class="arma_valor item_td">{{ helmet.value }}</td>
-                        {% if helmet.equiped %}<td class="item_td equipado">E</td>{% else %} <td class="item_td btn_equip"> <a href="#">[...]</a></td> {% endif %}
+                        {% if helmet.equiped %}<td class="item_td equipado">E</td>{% else %} <td class="item_td btn_equip"> <a href="{{ path('equipar_casco',  {'helmet':helmet.id} ) }}">[...]</a></td> {% endif %}
                     </tr>
                 {% endfor %}
             </table>

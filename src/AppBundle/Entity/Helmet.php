@@ -52,7 +52,7 @@ class Helmet
     private $inventory;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\PrincipalCharacter", inversedBy="equipedWeapon")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\PrincipalCharacter", inversedBy="equipedHelmet")
      * @ORM\JoinColumn(nullable=true, unique=true)
      * @var PrincipalCharacter
      */
