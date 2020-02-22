@@ -66,9 +66,9 @@ class PrincipalCharacter
 
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Weapon", mappedBy="equiped")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Helmet", mappedBy="equiped")
      * @ORM\JoinColumn(nullable=true)
-     * @var Weapon
+     * @var Helmet
      */
     private $equipedHelmet;
 
@@ -199,7 +199,7 @@ class PrincipalCharacter
     }
 
     /**
-     * @return Weapon
+     * @return Helmet
      */
     public function getEquipedHelmet()
     {
@@ -207,7 +207,7 @@ class PrincipalCharacter
     }
 
     /**
-     * @param Weapon $equipedHelmet
+     * @param Helmet $equipedHelmet
      * @return PrincipalCharacter
      */
     public function setEquipedHelmet($equipedHelmet)
