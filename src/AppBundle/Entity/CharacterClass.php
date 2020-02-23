@@ -32,6 +32,30 @@ class CharacterClass
     private $name;
 
     /**
+     * @ORM\Column(type="integer")
+     * @var int
+     */
+    private $hpBase;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @var int
+     */
+    private $damageBase;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @var int
+     */
+    private $defenseBase;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @var int
+     */
+    private $agilityBase;
+
+    /**
      * @ORM\Column(type="string")
      * @var string
      */
@@ -88,6 +112,78 @@ class CharacterClass
     public function setImage($image)
     {
         $this->image = $image;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHpBase()
+    {
+        return $this->hpBase;
+    }
+
+    /**
+     * @param int $hpBase
+     * @return CharacterClass
+     */
+    public function setHpBase($hpBase)
+    {
+        $this->hpBase = $hpBase;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDamageBase()
+    {
+        return $this->damageBase;
+    }
+
+    /**
+     * @param int $damageBase
+     * @return CharacterClass
+     */
+    public function setDamageBase($damageBase)
+    {
+        $this->damageBase = $damageBase;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDefenseBase()
+    {
+        return $this->defenseBase;
+    }
+
+    /**
+     * @param int $defenseBase
+     * @return CharacterClass
+     */
+    public function setDefenseBase($defenseBase)
+    {
+        $this->defenseBase = $defenseBase;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAgilityBase()
+    {
+        return $this->agilityBase;
+    }
+
+    /**
+     * @param int $agilityBase
+     * @return CharacterClass
+     */
+    public function setAgilityBase($agilityBase)
+    {
+        $this->agilityBase = $agilityBase;
         return $this;
     }
 

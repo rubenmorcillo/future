@@ -16,7 +16,7 @@ svg {
 }
 
 .svg-icon {
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 .svg-icon path {
     stroke: rgba(255, 255, 255, 0.9);
@@ -147,7 +147,7 @@ input, button {
     background: #E5D1D6;
     font-size: 1.5rem;
     border-radius: 3rem;
-    cursor: pointer;
+    /*cursor: pointer;*/
     overflow: hidden;
     -webkit-transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
     transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
@@ -200,7 +200,7 @@ input, button {
 }
 .login__signup a {
     color: #fff;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 
 .app {
@@ -254,7 +254,7 @@ input, button {
     left: 1.5rem;
     width: 1.8rem;
     height: 1.7rem;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 .app__menu-btn span, .app__menu-btn:before, .app__menu-btn:after {
     position: absolute;
@@ -340,7 +340,7 @@ input, button {
     border: 1px solid rgba(255, 255, 255, 0.6);
     border-left: none;
     border-bottom: none;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 .app__month-btn.left {
     float: left;
@@ -441,7 +441,7 @@ input, button {
     color: #fff;
     font-size: 2rem;
     border-radius: 50%;
-    cursor: pointer;
+    /*cursor: pointer;*/
     -webkit-transition: bottom 0.4s 0.1s, right 0.4s 0.1s, opacity 0.1s 0.7s, background-color 0.1s 0.7s, -webkit-transform 0.4s 0.4s;
     transition: bottom 0.4s 0.1s, right 0.4s 0.1s, opacity 0.1s 0.7s, background-color 0.1s 0.7s, -webkit-transform 0.4s 0.4s;
     transition: bottom 0.4s 0.1s, right 0.4s 0.1s, transform 0.4s 0.4s, opacity 0.1s 0.7s, background-color 0.1s 0.7s;

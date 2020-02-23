@@ -11,6 +11,7 @@
 * {
   /*font-family: 'Roboto', 'IBM Plex Sans', 'Krona One';*/
   list-style-type: none !important;
+  cursor: url("../recursos/cursor.ico"), auto;
 
   /*COLORES*/
   --bg-color-azul-oscuro: rgba(15,15,60,0.8);
@@ -130,7 +131,7 @@ body {
   background-size: cover;
 }
 .hd_icono:hover{
-  cursor: pointer;
+  /*cursor: pointer;*/
 }
 
 .icono_mapa{
@@ -173,7 +174,7 @@ body {
 }
 
 .hd_nickname a {
-  cursor: default;
+  /*cursor: default;*/
   text-decoration: none;
   color: #0b0b0b;
 }
@@ -186,7 +187,7 @@ body {
 }
 
 .controlpanel {
-  cursor: default;
+  /*cursor: default;*/
   float: left;
   position: relative;
   left: 240px;

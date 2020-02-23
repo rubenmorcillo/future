@@ -1,11 +1,21 @@
 {% extends 'pruebas/base_usuario.html.twig' %}
 
 {% block centro %}
-
+{% set pcClass = user.principalCharacter.class %}
         <div id="tablas_stats">
             <div class="tabla_detalles">
-                <h3>el tio</h3>
-    <p>todos estos años uno se makilla</p>
+                <div class="pc_image" style="background:url({{ asset('recursos/principalCharacterImages/'~user.principalCharacter.class.image) }}); background-repeat: no-repeat; -webkit-background-size: 130px 290px;background-size: 130px 290px;"></div>
+                <div class="pc_stats">
+                    <ul>
+                        {% if user.principalCharacter.class %}
+                        <li class="letra_lvl">Level:{{ user.principalCharacter.level|upper }} <span class="letra_pc_class">CLASS: <span>{{ pcClass }}</span></span></li>
+                        <li class="letra_stat">HP:  {{ hp }}</li>
+                        <li class="letra_stat">DMG: {{ dmg }}</li>
+                        <li class="letra_stat">DEF: {{ def}}</li>
+                        <li class="letra_stat">AGI: {{  agi }}</li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
             <div  class=tabla_equipo>
                 <p class="titulo_equipo"> <span class="letra_equipo">CABEZA_</span>
@@ -75,14 +85,7 @@
 
 {%   set clr_main_claro = "#222222" %}
     <style>
-        *{
-            /*cursor:url(http://falconmasters.com/img/cursor.gif), auto;*/
-            margin:0;
-            padding:0;
-        }
-        {#body{#}
-            {#background-color:{{ clr_fondo }};#}
-        {#}#}
+
         header ul{
             margin:1em 1.2em 1em;
         }
@@ -105,11 +108,11 @@
         nav span{
             margin-right:1em;
         }
-        .letra_top{
-            font-family: MatrixBook;
-            font-weight: bolder;
-            color: var(--color-neon);
-        }
+        /*.letra_top{*/
+            /*font-family: MatrixBook;*/
+            /*font-weight: bolder;*/
+            /*color: var(--color-neon);*/
+        /*}*/
         .letra_sub{
             font-weight: bold;
             font-family: candara;
@@ -121,13 +124,46 @@
             color: var(--color-borde-azul);
         }
 
+        .letra_pc_class{
+            color:var(--color-borde-rosa);
+            margin-left:2em;
+        }
+
+
+
+        .letra_pc_class > span {
+            color:white;
+        }
+
 
         #tablas_stats{
             margin:2.5em 1em 0.5em;
             width: 30%;
         }
+
+        #tablas_stats .tabla_detalles{
+            border:1px solid var(--color-borde-rosa);
+            background-color: var(--bg-color-test1);
+            position:fixed;
+            left: 800px;
+            width: 35%;
+            display:flex;
+        }
+
+        .pc_image{
+            position: relative;
+            /*display:flex;*/
+            /*left: 8em;*/
+            width: 20vw;
+            height: 65vh;
+        }
+
+        .pc_stats{
+            margin-left: -3.5em;
+        }
+
         .tabla_equipo{
-            width:100%;
+            width:80%;
             display:inline-block;
             border-top: 1px outset var(--color-borde-rosa);
             border-bottom: 1px inset var(--color-borde-rosa);
@@ -185,11 +221,7 @@
         .titulo_equipo{
             border-bottom: 0.5px solid var(--color-borde-azul);
         }
-        .tabla_detalles{
-            position:fixed;
-            left: 55%;
-            width: 35%;
-        }
+
         {#.resaltado{#}
             {#background-color:{{ clr_hover }};#}
         {#}#}

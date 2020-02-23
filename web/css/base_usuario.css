@@ -19,7 +19,7 @@
 }
 #base_nav > ul > li:hover{
     border: 2px outset var(--color-borde-rosa);
-    cursor: pointer;
+    /*cursor: pointer;*/
     color: rgba(255, 255, 255, 0);
     text-shadow: 0 0 2px #ffffff, 0 0 15px #70ffff, 0 0 20px #46fdff, 0 0 40px #46fdff;
 }

@@ -246,11 +246,19 @@ AppBundle\Entity\Skill:
 AppBundle\Entity\CharacterClass:
   classCharacter_1:
     name: punky
-    image: punkyClass.jpg
+    hpBase: 100
+    damageBase: 100
+    defenseBase: 85
+    agilityBase: 80
+    image: punkyClass.gif
 
   classCharacter_2:
     name: neo-samurai
-    image: neosamuraiClass.jpg
+    hpBase: 85
+    damageBase: 80
+    defenseBase: 95
+    agilityBase: 110
+    image: neosamuraiClass.gif
 
 #CARACTER PRINCIPALES
 AppBundle\Entity\PrincipalCharacter:

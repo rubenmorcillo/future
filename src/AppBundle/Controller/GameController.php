@@ -34,10 +34,25 @@ class GameController extends Controller
     public function principalCharacterAction()
     {
         $user = $this->getUser();
+        $clase = $user->getPrincipalCharacter()->getClass();
+        $hp = $this->statCalc($user->getPrincipalCharacter()->getLevel(), $clase->getHpBase());
+        $dmg = $this->statCalc($user->getPrincipalCharacter()->getLevel(),$clase->getDamageBase());
+        $def = $this->statCalc($user->getPrincipalCharacter()->getLevel(),$clase->getDefenseBase());
+        $agi = $this->statCalc($user->getPrincipalCharacter()->getLevel(),$clase->getAgilityBase());
 
         return $this->render('pruebas/base_comandante.html.twig', [
+            'agi' => $agi,
+            'def' => $def,
+            'dmg' => $dmg,
+            'hp' => $hp * 10,
             'user' => $user
         ]);
+    }
+
+    private function statCalc($lvl, $base){
+        //crecimiento regular
+        $resultado = round($lvl/100 * $base);
+        return $resultado;
     }
 
     /**
