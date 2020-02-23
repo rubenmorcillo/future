@@ -24,7 +24,7 @@
 }
 
 #inventario > nav > ul > li:hover {
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 
 .inventario_seccion{
